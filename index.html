@@ -2284,7 +2284,6 @@ button.primary{border:none;color:#05060d;background:linear-gradient(90deg,var(--
 
 
 </style>
-
 <style id="cover-sequence-v10">
 /* One-time full-row sequence. Each row rises once, then remains visible. */
 @media(max-width:950px){
@@ -2348,8 +2347,6 @@ button.primary{border:none;color:#05060d;background:linear-gradient(90deg,var(--
   }
 }
 </style>
-
-
 <style id="production-scroll-reveal">
 @media(max-width:950px){
   /* Visible by default. Only a full browser with JS adds the hidden state. */
@@ -2386,13 +2383,2482 @@ button.primary{border:none;color:#05060d;background:linear-gradient(90deg,var(--
   }
 }
 </style>
+<style id="investigation-upgrade">
+.topbar-minimal{
+  height:68px;
+  padding:0 30px;
+  flex-direction:row;
+  align-items:center;
+}
+.topbar-minimal .brand{
+  color:#fff;
+  text-decoration:none;
+}
+.topbar-status{
+  display:flex;
+  align-items:center;
+  gap:20px;
+  color:rgba(255,255,255,.55);
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.topbar-progress-number{
+  color:var(--cyan);
+  min-width:38px;
+  text-align:right;
+}
 
-</head>
+.investigation-index{
+  min-height:auto;
+  background:
+    radial-gradient(circle at 90% 12%,rgba(53,232,255,.10),transparent 25%),
+    radial-gradient(circle at 7% 72%,rgba(255,53,200,.09),transparent 28%),
+    #050505;
+}
+.investigation-index .inner{
+  max-width:1120px;
+}
+.investigation-eyebrow{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  padding-bottom:18px;
+  border-bottom:1px solid rgba(255,255,255,.12);
+  color:rgba(255,255,255,.48);
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+.investigation-intro{
+  display:grid;
+  grid-template-columns:1.35fr .65fr;
+  gap:70px;
+  align-items:end;
+  padding:64px 0 54px;
+}
+.investigation-intro h2{
+  margin:0;
+  font-size:clamp(62px,9vw,126px);
+}
+.investigation-intro h2 span{
+  background:linear-gradient(90deg,var(--cyan),var(--pink));
+  -webkit-background-clip:text;
+  color:transparent;
+}
+.investigation-intro > p{
+  max-width:430px;
+  margin:0 0 10px;
+  font-size:18px;
+  line-height:1.6;
+}
+
+.investigation-feature{
+  position:relative;
+  display:grid;
+  grid-template-columns:120px minmax(0,1fr) 260px;
+  gap:30px;
+  align-items:center;
+  min-height:390px;
+  padding:48px;
+  color:#fff;
+  text-decoration:none;
+  border-top:1px solid rgba(255,255,255,.16);
+  border-bottom:1px solid rgba(255,255,255,.16);
+  overflow:hidden;
+}
+.investigation-feature:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,rgba(53,232,255,.035),transparent 50%,rgba(255,53,200,.035));
+  opacity:.7;
+  transition:opacity .35s ease;
+}
+.investigation-feature:hover:before{opacity:1}
+.investigation-feature > *{position:relative;z-index:1}
+.investigation-feature-number{
+  align-self:start;
+  color:var(--cyan);
+  font-size:14px;
+  font-weight:900;
+  letter-spacing:.16em;
+}
+.investigation-label{
+  display:block;
+  color:var(--gold);
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  margin-bottom:18px;
+}
+.investigation-feature h3{
+  max-width:600px;
+  margin:0 0 18px;
+  font-size:clamp(42px,6vw,76px);
+  line-height:.93;
+}
+.investigation-feature p{
+  max-width:650px;
+  font-size:18px;
+}
+.investigation-enter{
+  margin-top:28px;
+  font-size:14px;
+  font-weight:900;
+}
+.investigation-enter span{
+  color:var(--cyan);
+  margin-left:8px;
+}
+.investigation-orbit{
+  position:relative;
+  width:230px;
+  height:230px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(53,232,255,.22);
+  box-shadow:0 0 0 34px rgba(255,255,255,.018),0 0 0 68px rgba(255,255,255,.009);
+}
+.investigation-orbit:before,
+.investigation-orbit:after{
+  content:"";
+  position:absolute;
+  border-radius:50%;
+  border:1px solid rgba(255,53,200,.22);
+}
+.investigation-orbit:before{inset:24px}
+.investigation-orbit:after{inset:55px}
+.investigation-core{
+  width:82px;
+  height:82px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  font-size:22px;
+  font-weight:900;
+  background:radial-gradient(circle,rgba(255,53,200,.86),rgba(53,232,255,.22));
+  box-shadow:0 0 45px rgba(255,53,200,.28);
+}
+
+.investigation-list{
+  margin-top:44px;
+}
+.investigation-row{
+  display:grid;
+  grid-template-columns:90px minmax(0,1fr) 30px;
+  gap:22px;
+  align-items:start;
+  padding:27px 0;
+  color:#fff;
+  text-decoration:none;
+  border-bottom:1px solid rgba(255,255,255,.11);
+  transition:padding .25s ease,border-color .25s ease;
+}
+.investigation-row:hover{
+  padding-left:12px;
+  border-color:rgba(53,232,255,.42);
+}
+.investigation-number{
+  color:rgba(255,255,255,.35);
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.14em;
+  padding-top:5px;
+}
+.investigation-row strong{
+  display:block;
+  font-size:clamp(24px,3vw,38px);
+  line-height:1;
+  letter-spacing:-.035em;
+  margin-bottom:8px;
+}
+.investigation-row p{
+  margin:0;
+  font-size:15px;
+  line-height:1.45;
+}
+.investigation-row > span{
+  color:rgba(255,255,255,.38);
+  font-size:20px;
+}
+.investigation-note{
+  display:grid;
+  grid-template-columns:90px 1fr;
+  gap:22px;
+  margin-top:48px;
+  padding-top:24px;
+  border-top:1px solid rgba(255,255,255,.12);
+}
+.investigation-note span{
+  color:var(--gold);
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+}
+.investigation-note p{
+  max-width:600px;
+  margin:0;
+  font-size:15px;
+}
+
+@media(max-width:950px){
+  .topbar-minimal{
+    height:62px;
+    padding:0 18px !important;
+    justify-content:space-between !important;
+  }
+  .topbar-status span:first-child{display:none}
+  .investigation-index{
+    display:block !important;
+    padding-top:100px !important;
+  }
+  .investigation-eyebrow{
+    font-size:9px;
+  }
+  .investigation-intro{
+    grid-template-columns:1fr;
+    gap:26px;
+    padding:44px 0 38px;
+  }
+  .investigation-intro h2{
+    font-size:clamp(52px,15vw,72px);
+  }
+  .investigation-intro > p{
+    max-width:none;
+    font-size:16px;
+  }
+  .investigation-feature{
+    grid-template-columns:1fr;
+    min-height:auto;
+    padding:34px 0;
+    gap:16px;
+  }
+  .investigation-feature-number{
+    order:0;
+  }
+  .investigation-feature-copy{
+    order:1;
+  }
+  .investigation-orbit{
+    order:2;
+    width:170px;
+    height:170px;
+    margin:26px auto 10px;
+  }
+  .investigation-feature h3{
+    font-size:clamp(42px,12vw,58px);
+  }
+  .investigation-feature p{
+    font-size:16px;
+  }
+  .investigation-row{
+    grid-template-columns:42px minmax(0,1fr) 18px;
+    gap:12px;
+    padding:24px 0;
+  }
+  .investigation-row strong{
+    font-size:24px;
+    line-height:1.05;
+  }
+  .investigation-row p{
+    font-size:14px;
+  }
+  .investigation-note{
+    grid-template-columns:1fr;
+    gap:9px;
+  }
+}
+</style>
+<style id="hwg-interactive-redesign">
+#how.hwg-experience{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 10% 12%,rgba(53,232,255,.10),transparent 24%),
+    radial-gradient(circle at 88% 70%,rgba(255,53,200,.10),transparent 26%),
+    linear-gradient(180deg,#071020,#090615);
+}
+#how.hwg-experience:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:48px 48px;
+}
+#how.hwg-experience .inner{position:relative;z-index:2}
+
+.hwg-opening{
+  max-width:1080px;
+  margin:0 auto;
+  padding:30px 0 56px;
+}
+.hwg-opening h2{
+  max-width:1050px;
+  font-size:clamp(48px,7.5vw,104px);
+  line-height:.91;
+  letter-spacing:-.065em;
+  margin:0;
+}
+.hwg-evidence-line{
+  max-width:680px;
+  margin-top:30px;
+  color:rgba(255,255,255,.66);
+  font-size:18px;
+}
+
+.hwg-break-visual{
+  display:grid;
+  grid-template-columns:1fr minmax(180px,300px) 1fr;
+  align-items:center;
+  gap:28px;
+  min-height:380px;
+  max-width:1080px;
+  margin:18px auto 0;
+  padding:44px;
+  border-top:1px solid rgba(255,255,255,.14);
+  border-bottom:1px solid rgba(255,255,255,.14);
+}
+.hwg-side{
+  min-height:190px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.hwg-side span{
+  display:block;
+  margin-bottom:10px;
+  color:rgba(255,255,255,.48);
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+.hwg-side strong{
+  display:block;
+  font-size:clamp(38px,5vw,68px);
+  line-height:.95;
+  letter-spacing:-.05em;
+}
+.hwg-care{text-align:right}
+.hwg-care strong{color:var(--cyan)}
+.hwg-style{text-align:left}
+.hwg-style strong{color:var(--pink)}
+
+.hwg-connection{
+  display:grid;
+  grid-template-columns:1fr 54px 1fr;
+  align-items:center;
+}
+.hwg-line-left,.hwg-line-right{
+  height:3px;
+  background:linear-gradient(90deg,var(--cyan),rgba(255,255,255,.16));
+  animation:hwgLinePulse 3.6s ease-in-out infinite;
+}
+.hwg-line-right{
+  background:linear-gradient(90deg,rgba(255,255,255,.16),var(--pink));
+}
+.hwg-break-mark{
+  width:54px;height:54px;border-radius:50%;
+  display:grid;place-items:center;
+  margin:auto;
+  color:#fff;
+  font-size:26px;
+  font-weight:900;
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(5,6,13,.88);
+  box-shadow:0 0 40px rgba(255,53,200,.18);
+  animation:hwgBreakPulse 2.8s ease-in-out infinite;
+}
+@keyframes hwgLinePulse{
+  0%,100%{opacity:.32;transform:scaleX(.88)}
+  50%{opacity:1;transform:scaleX(1)}
+}
+@keyframes hwgBreakPulse{
+  0%,100%{transform:scale(.92);box-shadow:0 0 24px rgba(255,53,200,.12)}
+  50%{transform:scale(1.08);box-shadow:0 0 52px rgba(53,232,255,.22)}
+}
+.hwg-break-caption{
+  max-width:1080px;
+  margin:14px auto 84px;
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  color:rgba(255,255,255,.45);
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+.hwg-chain-intro{
+  max-width:850px;
+  margin:0 auto 30px;
+  text-align:center;
+}
+.hwg-chain-intro h3{
+  margin:0 0 10px;
+  font-size:clamp(38px,5vw,64px);
+}
+.hwg-chain-intro p{margin:0}
+
+.hwg-chain{
+  max-width:880px;
+  margin:0 auto;
+}
+.hwg-stage{
+  border-top:1px solid rgba(255,255,255,.14);
+  border-bottom:1px solid rgba(255,255,255,.06);
+  background:rgba(255,255,255,.02);
+  transition:background .3s ease,border-color .3s ease;
+}
+.hwg-stage[open]{
+  background:linear-gradient(135deg,rgba(53,232,255,.07),rgba(255,53,200,.05));
+  border-color:rgba(53,232,255,.28);
+}
+.hwg-stage summary{
+  list-style:none;
+  cursor:pointer;
+  display:grid;
+  grid-template-columns:54px 58px 1fr 42px;
+  gap:18px;
+  align-items:center;
+  min-height:120px;
+  padding:24px 26px;
+}
+.hwg-stage summary::-webkit-details-marker{display:none}
+.hwg-stage-number{
+  color:rgba(255,255,255,.36);
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.15em;
+}
+.hwg-stage-icon{
+  width:50px;height:50px;border-radius:17px;
+  display:grid;place-items:center;
+  font-size:23px;
+  background:linear-gradient(135deg,rgba(53,232,255,.16),rgba(255,53,200,.14));
+  border:1px solid rgba(53,232,255,.24);
+}
+.hwg-stage-copy small{
+  display:block;
+  margin-bottom:6px;
+  color:var(--gold);
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+}
+.hwg-stage-copy strong{
+  display:block;
+  color:#fff;
+  font-size:clamp(24px,3vw,36px);
+  line-height:1;
+  letter-spacing:-.035em;
+}
+.hwg-stage-toggle{
+  width:38px;height:38px;border-radius:50%;
+  display:grid;place-items:center;
+  border:1px solid rgba(255,255,255,.18);
+  color:var(--cyan);
+  font-size:22px;
+  transition:transform .3s ease;
+}
+.hwg-stage[open] .hwg-stage-toggle{transform:rotate(45deg)}
+.hwg-stage-detail{
+  padding:0 26px 34px 156px;
+  animation:hwgDetailIn .45s ease both;
+}
+@keyframes hwgDetailIn{
+  from{opacity:0;transform:translateY(16px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.hwg-finding-label{
+  display:block;
+  margin-bottom:12px;
+  color:var(--cyan);
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+.hwg-stage-detail h4{
+  max-width:670px;
+  margin:0 0 12px;
+  color:#fff;
+  font-size:clamp(25px,3vw,39px);
+  line-height:1.02;
+  letter-spacing:-.04em;
+}
+.hwg-stage-detail p{
+  max-width:670px;
+  margin:0;
+  font-size:16px;
+}
+.hwg-chain-arrow{
+  height:54px;
+  display:grid;
+  place-items:center;
+  color:rgba(53,232,255,.55);
+  font-size:24px;
+  animation:hwgArrow 1.8s ease-in-out infinite;
+}
+@keyframes hwgArrow{
+  0%,100%{transform:translateY(-3px);opacity:.35}
+  50%{transform:translateY(5px);opacity:1}
+}
+
+.hwg-final-finding{
+  max-width:980px;
+  margin:94px auto 20px;
+  padding:58px 0;
+  text-align:center;
+  border-top:1px solid rgba(255,255,255,.14);
+  border-bottom:1px solid rgba(255,255,255,.14);
+}
+.hwg-final-finding span{
+  display:block;
+  margin-bottom:18px;
+  color:var(--gold);
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+.hwg-final-finding h3{
+  max-width:900px;
+  margin:auto;
+  font-size:clamp(38px,5.5vw,72px);
+  line-height:.97;
+  letter-spacing:-.05em;
+}
+
+@media(max-width:950px){
+  .hwg-opening{padding-top:10px}
+  .hwg-opening h2{
+    font-size:clamp(44px,13vw,64px);
+  }
+  .hwg-evidence-line{
+    font-size:16px;
+  }
+  .hwg-break-visual{
+    grid-template-columns:1fr;
+    gap:24px;
+    min-height:auto;
+    padding:34px 0;
+  }
+  .hwg-side{
+    min-height:auto;
+    text-align:left;
+  }
+  .hwg-connection{
+    grid-template-columns:1fr 44px 1fr;
+  }
+  .hwg-break-mark{width:44px;height:44px}
+  .hwg-break-caption{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:8px;
+    margin-bottom:70px;
+  }
+  .hwg-stage summary{
+    grid-template-columns:36px 46px 1fr 34px;
+    gap:10px;
+    min-height:104px;
+    padding:20px 0;
+  }
+  .hwg-stage-icon{
+    width:42px;height:42px;border-radius:14px;font-size:19px;
+  }
+  .hwg-stage-copy strong{
+    font-size:24px;
+  }
+  .hwg-stage-detail{
+    padding:0 0 28px 92px;
+  }
+  .hwg-stage-detail h4{
+    font-size:28px;
+  }
+  .hwg-final-finding{
+    margin-top:70px;
+    padding:44px 0;
+  }
+}
+</style>
+<style id="stylist-landscape-apple-upgrade">
+#landscape.stylist-model-section{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 10% 12%,rgba(53,232,255,.09),transparent 25%),
+    radial-gradient(circle at 88% 78%,rgba(255,53,200,.08),transparent 28%),
+    #050505;
+}
+#landscape.stylist-model-section .inner{
+  max-width:1220px;
+}
+
+.stylist-model-opening{
+  max-width:1040px;
+  padding-bottom:54px;
+}
+.stylist-model-opening h2{
+  margin:0;
+  max-width:1000px;
+  font-size:clamp(58px,8.5vw,118px);
+  line-height:.88;
+  letter-spacing:-.068em;
+}
+.stylist-model-opening h2 span{
+  background:linear-gradient(90deg,var(--cyan),var(--pink));
+  -webkit-background-clip:text;
+  color:transparent;
+}
+.stylist-model-opening p{
+  max-width:690px;
+  margin-top:28px;
+  font-size:18px;
+}
+
+.stylist-model-tabs{
+  position:sticky;
+  top:68px;
+  z-index:12;
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+  padding:12px 0 16px;
+  margin-bottom:18px;
+  background:linear-gradient(180deg,#050505 72%,transparent);
+  scrollbar-width:none;
+}
+.stylist-model-tabs::-webkit-scrollbar{display:none}
+.model-tab{
+  flex:0 0 auto;
+  padding:10px 14px;
+  border-radius:999px;
+  color:rgba(255,255,255,.55);
+  text-decoration:none;
+  font-size:12px;
+  font-weight:900;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.025);
+}
+.model-tab:first-child{
+  color:#050505;
+  background:#fff;
+}
+
+.stylist-model-track{
+  display:grid;
+  grid-auto-flow:column;
+  grid-auto-columns:min(88vw,920px);
+  gap:24px;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  scroll-padding-left:0;
+  overscroll-behavior-inline:contain;
+  padding:0 0 24px;
+  scrollbar-width:none;
+}
+.stylist-model-track::-webkit-scrollbar{display:none}
+
+.stylist-model-card{
+  position:relative;
+  scroll-snap-align:start;
+  min-height:720px;
+  padding:34px;
+  border-radius:38px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.14);
+  background:#0b0b0d;
+  box-shadow:0 36px 100px rgba(0,0,0,.34);
+}
+.model-card-glow{
+  position:absolute;
+  inset:auto -12% -18% auto;
+  width:430px;
+  height:430px;
+  border-radius:50%;
+  filter:blur(10px);
+  opacity:.54;
+}
+.model-full .model-card-glow{
+  background:radial-gradient(circle,rgba(53,232,255,.34),transparent 67%);
+}
+.model-care .model-card-glow{
+  background:radial-gradient(circle,rgba(53,208,127,.30),transparent 67%);
+}
+.model-style .model-card-glow{
+  background:radial-gradient(circle,rgba(255,53,200,.31),transparent 67%);
+}
+.model-specialist .model-card-glow{
+  background:radial-gradient(circle,rgba(139,92,255,.34),transparent 67%);
+}
+.stylist-model-card > *{position:relative;z-index:2}
+
+.model-card-topline{
+  display:flex;
+  justify-content:space-between;
+  gap:18px;
+  padding-bottom:20px;
+  border-bottom:1px solid rgba(255,255,255,.11);
+  color:rgba(255,255,255,.46);
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+}
+
+.model-card-hero{
+  display:grid;
+  grid-template-columns:100px 1fr;
+  gap:28px;
+  align-items:center;
+  padding:54px 0 46px;
+}
+.model-card-icon{
+  width:96px;
+  height:96px;
+  border-radius:28px;
+  display:grid;
+  place-items:center;
+  font-size:42px;
+  background:linear-gradient(135deg,rgba(53,232,255,.12),rgba(255,53,200,.10));
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 0 42px rgba(53,232,255,.10);
+}
+.model-card-hero h3{
+  margin:0 0 12px;
+  font-size:clamp(48px,6vw,78px);
+  line-height:.9;
+  letter-spacing:-.06em;
+}
+.model-card-hero p{
+  max-width:620px;
+  margin:0;
+  font-size:19px;
+}
+
+.model-card-details{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  border-top:1px solid rgba(255,255,255,.12);
+}
+.model-detail{
+  min-height:185px;
+  padding:26px 24px 24px 0;
+  border-bottom:1px solid rgba(255,255,255,.10);
+}
+.model-detail:nth-child(even){
+  padding-left:24px;
+  border-left:1px solid rgba(255,255,255,.10);
+}
+.model-detail span{
+  display:block;
+  margin-bottom:13px;
+  color:var(--cyan);
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+.model-care .model-detail span{color:#78ffc0}
+.model-style .model-detail span{color:#ff78db}
+.model-specialist .model-detail span{color:#bda4ff}
+.model-detail strong{
+  display:block;
+  max-width:420px;
+  color:#fff;
+  font-size:20px;
+  line-height:1.35;
+}
+
+.stylist-swipe-cue{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  padding:14px 2px 50px;
+  color:rgba(255,255,255,.44);
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+}
+.swipe-line{
+  flex:1;
+  height:1px;
+  background:linear-gradient(90deg,rgba(53,232,255,.55),rgba(255,255,255,.08));
+}
+
+.stylist-model-finding{
+  max-width:980px;
+  margin:54px auto 20px;
+  padding:64px 0;
+  text-align:center;
+  border-top:1px solid rgba(255,255,255,.13);
+  border-bottom:1px solid rgba(255,255,255,.13);
+}
+.stylist-model-finding span{
+  display:block;
+  margin-bottom:18px;
+  color:var(--gold);
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+.stylist-model-finding h3{
+  max-width:920px;
+  margin:auto;
+  font-size:clamp(38px,5.3vw,70px);
+  line-height:.97;
+  letter-spacing:-.05em;
+}
+
+@media(max-width:950px){
+  .stylist-model-opening{
+    padding-bottom:38px;
+  }
+  .stylist-model-opening h2{
+    font-size:clamp(52px,15vw,74px);
+  }
+  .stylist-model-opening p{
+    font-size:16px;
+  }
+
+  .stylist-model-tabs{
+    top:62px;
+    margin-left:-22px;
+    margin-right:-22px;
+    padding-left:22px;
+    padding-right:22px;
+  }
+
+  .stylist-model-track{
+    grid-auto-columns:calc(100vw - 44px);
+    gap:14px;
+    margin-left:0;
+    margin-right:-22px;
+    padding-right:22px;
+  }
+
+  .stylist-model-card{
+    min-height:auto;
+    padding:24px 20px 28px;
+    border-radius:28px;
+  }
+
+  .model-card-topline{
+    font-size:9px;
+  }
+
+  .model-card-hero{
+    grid-template-columns:1fr;
+    gap:20px;
+    padding:38px 0 34px;
+  }
+
+  .model-card-icon{
+    width:72px;
+    height:72px;
+    border-radius:22px;
+    font-size:32px;
+  }
+
+  .model-card-hero h3{
+    font-size:clamp(45px,13vw,62px);
+  }
+
+  .model-card-hero p{
+    font-size:17px;
+  }
+
+  .model-card-details{
+    grid-template-columns:1fr;
+  }
+
+  .model-detail,
+  .model-detail:nth-child(even){
+    min-height:auto;
+    padding:22px 0;
+    border-left:0;
+    border-bottom:1px solid rgba(255,255,255,.10);
+  }
+
+  .model-detail strong{
+    font-size:18px;
+  }
+
+  .stylist-model-finding{
+    padding:48px 0;
+    margin-top:42px;
+  }
+}
+</style>
+<style id="stylist-landscape-refinement">
+/* Place the landscape directly after the quote and remove excess vertical dead space */
+#quote1{
+  min-height:72vh !important;
+  padding-bottom:46px !important;
+}
+#quote1 .btns{
+  margin-bottom:0 !important;
+}
+
+#landscape.stylist-model-section{
+  padding-top:74px !important;
+}
+
+.stylist-model-opening.compact{
+  max-width:920px;
+  padding-bottom:28px;
+}
+
+.stylist-model-opening.compact h2{
+  max-width:880px;
+  font-size:clamp(46px,6.4vw,82px);
+  line-height:.92;
+  margin-bottom:18px;
+}
+
+.stylist-model-opening.compact p{
+  margin-top:0;
+  max-width:560px;
+  font-size:16px;
+}
+
+.stylist-model-tabs{
+  margin-bottom:12px;
+}
+
+/* Scale cards down so they feel like product panels, not full-screen slides */
+.stylist-model-track{
+  grid-auto-columns:min(74vw,760px);
+  gap:18px;
+}
+
+.stylist-model-card{
+  min-height:560px;
+  padding:26px;
+  border-radius:30px;
+}
+
+.model-card-hero{
+  grid-template-columns:78px 1fr;
+  gap:22px;
+  padding:36px 0 30px;
+}
+
+.model-card-icon{
+  width:74px;
+  height:74px;
+  border-radius:22px;
+  font-size:32px;
+}
+
+.model-card-hero h3{
+  font-size:clamp(40px,4.8vw,62px);
+}
+
+.model-card-hero p{
+  font-size:16px;
+}
+
+.model-detail{
+  min-height:145px;
+  padding:20px 18px 18px 0;
+}
+
+.model-detail:nth-child(even){
+  padding-left:18px;
+}
+
+.model-detail strong{
+  font-size:17px;
+  line-height:1.32;
+}
+
+.stylist-swipe-cue{
+  padding-bottom:34px;
+}
+
+@media(max-width:950px){
+  #quote1{
+    min-height:68svh !important;
+    padding-bottom:36px !important;
+  }
+
+  #landscape.stylist-model-section{
+    padding-top:62px !important;
+  }
+
+  .stylist-model-opening.compact{
+    padding-bottom:24px;
+  }
+
+  .stylist-model-opening.compact h2{
+    font-size:clamp(42px,12.5vw,58px);
+  }
+
+  .stylist-model-track{
+    grid-auto-columns:calc(88vw - 18px);
+    gap:12px;
+  }
+
+  .stylist-model-card{
+    padding:20px 18px 22px;
+    border-radius:24px;
+  }
+
+  .model-card-hero{
+    padding:28px 0 24px;
+  }
+
+  .model-card-hero h3{
+    font-size:clamp(39px,11.5vw,52px);
+  }
+
+  .model-card-details{
+    grid-template-columns:1fr;
+  }
+
+  .model-detail,
+  .model-detail:nth-child(even){
+    padding:18px 0;
+  }
+}
+</style>
+<style id="stylist-landscape-visibility-fix">
+#landscape.stylist-model-section{
+  display:block !important;
+}
+@media(max-width:950px){
+  #landscape.stylist-model-section{
+    display:block !important;
+  }
+}
+</style>
+<style id="compact-landscape-with-quote">
+/* Restore the cinematic transition before the four service models */
+#quote1.stylist-landscape-quote{
+  display:grid !important;
+  min-height:82vh !important;
+  padding:112px 7vw 64px !important;
+  place-items:center;
+  text-align:center;
+  background:
+    radial-gradient(circle at 50% 38%,rgba(53,232,255,.08),transparent 28%),
+    radial-gradient(circle at 76% 70%,rgba(255,53,200,.07),transparent 25%),
+    #050505;
+}
+#quote1.stylist-landscape-quote .inner{
+  max-width:1080px;
+}
+#quote1.stylist-landscape-quote .quote-box{
+  max-width:1040px;
+  margin:auto;
+  font-size:clamp(46px,7vw,94px);
+  line-height:.94;
+  letter-spacing:-.055em;
+}
+.quote-transition-line{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  max-width:600px;
+  margin:34px auto 0;
+  color:rgba(255,255,255,.48);
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+}
+.quote-transition-line > span:nth-child(2){
+  width:110px;
+  height:1px;
+  background:linear-gradient(90deg,var(--cyan),var(--pink));
+}
+
+/* Remove excess space before the cards */
+#landscape.stylist-model-section{
+  display:block !important;
+  padding-top:54px !important;
+}
+.stylist-model-opening.compact{
+  padding-bottom:18px !important;
+}
+.stylist-model-tabs{
+  margin-bottom:8px !important;
+}
+
+/* Compact desktop cards */
+.stylist-model-track{
+  grid-auto-columns:min(68vw,700px) !important;
+  gap:16px !important;
+}
+.stylist-model-card{
+  min-height:500px !important;
+  padding:22px !important;
+  border-radius:26px !important;
+}
+.model-card-topline{
+  padding-bottom:14px !important;
+}
+.model-card-hero{
+  grid-template-columns:64px 1fr !important;
+  gap:18px !important;
+  padding:24px 0 20px !important;
+}
+.model-card-icon{
+  width:60px !important;
+  height:60px !important;
+  border-radius:18px !important;
+  font-size:27px !important;
+}
+.model-card-hero h3{
+  font-size:clamp(36px,4vw,54px) !important;
+  margin-bottom:7px !important;
+}
+.model-card-hero p{
+  font-size:15px !important;
+  line-height:1.35 !important;
+}
+.model-card-details{
+  grid-template-columns:1fr 1fr !important;
+}
+.model-detail,
+.model-detail:nth-child(even){
+  min-height:125px !important;
+  padding:16px 14px !important;
+}
+.model-detail:nth-child(odd){
+  padding-left:0 !important;
+}
+.model-detail span{
+  margin-bottom:8px !important;
+  font-size:9px !important;
+}
+.model-detail strong{
+  font-size:15px !important;
+  line-height:1.28 !important;
+}
+
+/* Mobile: fit the entire profile within one phone screen */
+@media(max-width:950px){
+  #quote1.stylist-landscape-quote{
+    min-height:76svh !important;
+    padding:96px 22px 42px !important;
+  }
+  #quote1.stylist-landscape-quote .quote-box{
+    font-size:clamp(39px,11.5vw,55px);
+    line-height:.94;
+  }
+  .quote-transition-line{
+    margin-top:28px;
+  }
+
+  #landscape.stylist-model-section{
+    padding-top:36px !important;
+  }
+  .stylist-model-opening.compact{
+    padding-bottom:14px !important;
+  }
+  .stylist-model-opening.compact h2{
+    font-size:clamp(36px,10vw,46px) !important;
+    margin-bottom:10px !important;
+  }
+  .stylist-model-opening.compact p{
+    font-size:14px !important;
+  }
+
+  .stylist-model-track{
+    grid-auto-columns:calc(100vw - 54px) !important;
+    gap:10px !important;
+  }
+
+  .stylist-model-card{
+    min-height:auto !important;
+    height:auto !important;
+    padding:16px 14px 18px !important;
+    border-radius:22px !important;
+  }
+
+  .model-card-topline{
+    padding-bottom:10px !important;
+    font-size:8px !important;
+  }
+
+  .model-card-hero{
+    grid-template-columns:52px 1fr !important;
+    gap:12px !important;
+    padding:15px 0 14px !important;
+  }
+
+  .model-card-icon{
+    width:50px !important;
+    height:50px !important;
+    border-radius:15px !important;
+    font-size:23px !important;
+  }
+
+  .model-card-hero h3{
+    font-size:clamp(30px,8.5vw,40px) !important;
+    line-height:.94 !important;
+  }
+
+  .model-card-hero p{
+    font-size:13px !important;
+    line-height:1.28 !important;
+  }
+
+  .model-card-details{
+    grid-template-columns:1fr 1fr !important;
+  }
+
+  .model-detail,
+  .model-detail:nth-child(even){
+    min-height:0 !important;
+    padding:13px 10px !important;
+  }
+
+  .model-detail:nth-child(odd){
+    padding-left:0 !important;
+  }
+
+  .model-detail span{
+    font-size:8px !important;
+    letter-spacing:.13em !important;
+    margin-bottom:6px !important;
+  }
+
+  .model-detail strong{
+    font-size:12.5px !important;
+    line-height:1.24 !important;
+  }
+
+  .stylist-swipe-cue{
+    padding:10px 2px 24px !important;
+  }
+}
+</style>
+<style id="stylist-card-true-fix">
+/* The glow must stay decorative and never occupy layout space. */
+.stylist-model-card .model-card-glow{
+  position:absolute !important;
+  z-index:0 !important;
+  pointer-events:none !important;
+}
+
+/* Keep actual card content above the glow. */
+.stylist-model-card > .model-card-topline,
+.stylist-model-card > .model-card-hero,
+.stylist-model-card > .model-card-details{
+  position:relative !important;
+  z-index:2 !important;
+}
+
+/* Titles replace dots and clearly show the model currently in view. */
+.model-tab,
+.model-tab:first-child{
+  color:rgba(255,255,255,.52) !important;
+  background:rgba(255,255,255,.025) !important;
+  border-color:rgba(255,255,255,.12) !important;
+  transition:background .25s ease,color .25s ease,border-color .25s ease,transform .25s ease !important;
+}
+.model-tab.active{
+  color:#050505 !important;
+  background:#fff !important;
+  border-color:#fff !important;
+  transform:scale(1.02);
+}
+
+/* Remove any remaining forced empty height. */
+@media(max-width:950px){
+  .stylist-model-card{
+    min-height:0 !important;
+    height:auto !important;
+  }
+  .model-card-glow{
+    width:260px !important;
+    height:260px !important;
+    right:-18% !important;
+    bottom:-12% !important;
+  }
+  .stylist-model-tabs{
+    padding-top:8px !important;
+    padding-bottom:10px !important;
+  }
+}
+</style>
+<style id="fixed-model-navigation">
+/* Fixed model navigation; only the cards swipe */
+.stylist-model-tabs{
+  display:flex !important;
+  position:sticky;
+  top:62px;
+  z-index:30;
+  gap:8px;
+  overflow-x:auto;
+  margin:0 -22px 14px;
+  padding:12px 22px 14px;
+  background:rgba(5,5,5,.92);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(255,255,255,.08);
+  scrollbar-width:none;
+}
+.stylist-model-tabs::-webkit-scrollbar{display:none}
+
+.model-tab{
+  flex:0 0 auto;
+  color:rgba(255,255,255,.44) !important;
+  background:transparent !important;
+  border:1px solid rgba(255,255,255,.12) !important;
+  transition:
+    color .25s ease,
+    background .25s ease,
+    border-color .25s ease,
+    transform .25s ease;
+}
+.model-tab.active{
+  color:#050505 !important;
+  background:#fff !important;
+  border-color:#fff !important;
+  transform:scale(1.02);
+}
+
+.stylist-model-track{
+  position:relative;
+  z-index:1;
+  overflow-x:auto;
+  overflow-y:visible;
+  scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;
+}
+
+.stylist-model-card{
+  scroll-snap-align:center;
+  flex-shrink:0;
+}
+
+@media(min-width:951px){
+  .stylist-model-tabs{
+    top:68px;
+    margin:0 0 14px;
+    padding:12px 0 14px;
+  }
+}
+</style>
+<style id="active-model-highlight-fix">
+/* Cancel older rules that permanently highlighted Full-Service */
+.stylist-model-tabs .model-tab,
+.stylist-model-tabs .model-tab:first-child{
+  color:rgba(255,255,255,.46) !important;
+  background:transparent !important;
+  border-color:rgba(255,255,255,.12) !important;
+  transform:none !important;
+}
+
+.stylist-model-tabs .model-tab.active{
+  color:#050505 !important;
+  background:#ffffff !important;
+  border-color:#ffffff !important;
+  transform:scale(1.02) !important;
+  box-shadow:0 8px 28px rgba(255,255,255,.10);
+}
+</style>
+<style id="appointment-inspection-upgrade">
+#decision.appointment-inspection{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 8% 12%,rgba(53,232,255,.09),transparent 26%),
+    radial-gradient(circle at 90% 80%,rgba(255,53,200,.08),transparent 28%),
+    #050505;
+}
+#decision.appointment-inspection .inner{max-width:1040px}
+
+.inspection-opening{
+  max-width:900px;
+  margin-bottom:44px;
+}
+.inspection-opening h2{
+  margin:0;
+  font-size:clamp(58px,8.2vw,108px);
+  line-height:.88;
+  letter-spacing:-.067em;
+}
+.inspection-opening h2 span{
+  background:linear-gradient(90deg,var(--cyan),var(--pink));
+  -webkit-background-clip:text;
+  color:transparent;
+}
+.inspection-opening p{
+  max-width:650px;
+  margin-top:24px;
+  font-size:18px;
+}
+
+.inspection-progress{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:24px;
+  align-items:end;
+  margin:0 0 24px;
+  padding:18px 0;
+  border-top:1px solid rgba(255,255,255,.12);
+  border-bottom:1px solid rgba(255,255,255,.12);
+}
+.inspection-progress span{
+  display:block;
+  color:rgba(255,255,255,.42);
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  margin-bottom:5px;
+}
+.inspection-progress strong{
+  color:#fff;
+  font-size:15px;
+}
+.inspection-progress-track{
+  height:4px;
+  overflow:hidden;
+  border-radius:999px;
+  background:rgba(255,255,255,.08);
+}
+.inspection-progress-fill{
+  width:0;
+  height:100%;
+  border-radius:inherit;
+  background:linear-gradient(90deg,var(--cyan),var(--pink));
+  transition:width .4s ease;
+}
+
+.inspection-list{
+  display:grid;
+  gap:10px;
+}
+.inspection-item{
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:22px;
+  background:rgba(255,255,255,.025);
+  overflow:hidden;
+  transition:border-color .3s ease,background .3s ease;
+}
+.inspection-item[open]{
+  border-color:rgba(53,232,255,.28);
+  background:linear-gradient(135deg,rgba(53,232,255,.055),rgba(255,53,200,.035));
+}
+.inspection-item.reviewed{
+  border-color:rgba(53,208,127,.34);
+}
+.inspection-item summary{
+  list-style:none;
+  cursor:pointer;
+  display:grid;
+  grid-template-columns:42px 48px 1fr auto;
+  gap:16px;
+  align-items:center;
+  min-height:96px;
+  padding:18px 20px;
+}
+.inspection-item summary::-webkit-details-marker{display:none}
+.inspection-number{
+  color:rgba(255,255,255,.34);
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.14em;
+}
+.inspection-icon{
+  width:44px;height:44px;border-radius:14px;
+  display:grid;place-items:center;
+  font-size:21px;
+  border:1px solid rgba(53,232,255,.18);
+  background:rgba(255,255,255,.04);
+}
+.inspection-summary-copy small{
+  display:block;
+  margin-bottom:4px;
+  color:var(--cyan);
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+}
+.inspection-summary-copy strong{
+  display:block;
+  color:#fff;
+  font-size:25px;
+  line-height:1;
+  letter-spacing:-.035em;
+}
+.inspection-summary-copy em{
+  display:block;
+  margin-top:7px;
+  color:rgba(255,255,255,.55);
+  font-style:normal;
+  font-size:14px;
+}
+.inspection-state{
+  min-width:76px;
+  padding:8px 11px;
+  border-radius:999px;
+  text-align:center;
+  color:rgba(255,255,255,.52);
+  border:1px solid rgba(255,255,255,.12);
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.inspection-item.reviewed .inspection-state{
+  color:#07130d;
+  background:#78ffc0;
+  border-color:#78ffc0;
+}
+.inspection-item.reviewed .inspection-state::before{content:"✓ "}
+.inspection-item.reviewed .inspection-state{font-size:0}
+.inspection-item.reviewed .inspection-state::after{
+  content:"Reviewed";
+  font-size:9px;
+}
+
+.inspection-panel{
+  padding:0 20px 22px 126px;
+  animation:inspectionPanelIn .4s ease both;
+}
+@keyframes inspectionPanelIn{
+  from{opacity:0;transform:translateY(12px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.inspection-prompt{
+  margin:0 0 13px;
+  color:#fff;
+  font-size:15px;
+  font-weight:800;
+}
+.inspection-chips{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+}
+.inspection-chips button{
+  min-height:42px;
+  padding:10px 12px;
+  border-radius:13px;
+  border:1px solid rgba(255,255,255,.13);
+  background:rgba(5,6,13,.52);
+  color:rgba(255,255,255,.72);
+  text-align:left;
+  font-size:13px;
+  font-weight:800;
+  cursor:pointer;
+  transition:background .2s ease,border-color .2s ease,color .2s ease,transform .2s ease;
+}
+.inspection-chips button:hover{border-color:rgba(53,232,255,.34)}
+.inspection-chips button.checked{
+  color:#07130d;
+  background:#78ffc0;
+  border-color:#78ffc0;
+}
+.inspection-chips button.checked::before{content:"✓ ";font-weight:900}
+.inspection-finding{
+  margin-top:14px;
+  padding:15px 17px;
+  border-radius:16px;
+  background:rgba(53,232,255,.055);
+  border-left:3px solid var(--cyan);
+}
+.inspection-finding span{
+  display:block;
+  margin-bottom:5px;
+  color:var(--cyan);
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+}
+.inspection-finding p{
+  margin:0;
+  color:#fff;
+  font-size:15px;
+  line-height:1.45;
+}
+
+.inspection-complete{
+  max-width:940px;
+  margin:74px auto 16px;
+  padding:54px 0;
+  text-align:center;
+  border-top:1px solid rgba(255,255,255,.13);
+  border-bottom:1px solid rgba(255,255,255,.13);
+}
+.inspection-complete span{
+  display:block;
+  margin-bottom:17px;
+  color:var(--gold);
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+.inspection-complete h3{
+  max-width:860px;
+  margin:auto;
+  font-size:clamp(40px,5.4vw,70px);
+  line-height:.97;
+  letter-spacing:-.05em;
+}
+.inspection-complete p{
+  max-width:650px;
+  margin:20px auto 0;
+  font-size:16px;
+}
+
+@media(max-width:950px){
+  .inspection-opening{margin-bottom:32px}
+  .inspection-opening h2{
+    font-size:clamp(48px,14vw,66px);
+  }
+  .inspection-opening p{font-size:16px}
+
+  .inspection-progress{
+    grid-template-columns:1fr;
+    gap:12px;
+  }
+
+  .inspection-item summary{
+    grid-template-columns:30px 40px 1fr;
+    gap:10px;
+    min-height:86px;
+    padding:16px 14px;
+  }
+  .inspection-state{
+    grid-column:3;
+    justify-self:start;
+    margin-top:4px;
+  }
+  .inspection-icon{
+    width:38px;height:38px;border-radius:12px;font-size:18px;
+  }
+  .inspection-summary-copy strong{font-size:22px}
+  .inspection-summary-copy em{font-size:12px}
+
+  .inspection-panel{
+    padding:0 14px 18px 94px;
+  }
+  .inspection-chips{
+    grid-template-columns:1fr 1fr;
+  }
+  .inspection-chips button{
+    min-height:38px;
+    font-size:12px;
+  }
+  .inspection-complete{
+    margin-top:58px;
+    padding:42px 0;
+  }
+}
+</style>
+<style>
+.inspection-chips{display:flex!important;flex-wrap:wrap;gap:8px}
+.static-chip{padding:10px 14px;border:1px solid rgba(255,255,255,.14);border-radius:999px;background:rgba(255,255,255,.05);font-weight:700;font-size:13px}
+.inspection-progress{display:none!important}
+.inspection-state{display:none!important}
+</style><style id="iphone-paying-for-upgrade">
+/* iPhone-first upgrade for the What Am I Paying For receipt tool */
+#whatsincluded .wrap,
+#pricing .wrap{
+  max-width:1120px;
+}
+
+.mobile-receipt-button,
+.receipt-sheet-close,
+.receipt-sheet-overlay{
+  display:none;
+}
+
+@media(max-width:850px){
+  #whatsincluded,
+  #pricing{
+    padding-left:18px !important;
+    padding-right:18px !important;
+  }
+
+  #whatsincluded .wrap,
+  #pricing .wrap{
+    width:100%;
+  }
+
+  #whatsincluded h1,
+  #pricing h1{
+    font-size:clamp(48px,14vw,68px) !important;
+    line-height:.9 !important;
+    margin-bottom:18px !important;
+  }
+
+  #whatsincluded .lead,
+  #pricing .lead{
+    font-size:17px !important;
+    line-height:1.45 !important;
+    margin-bottom:22px !important;
+  }
+
+  #whatsincluded .grid,
+  #pricing .grid{
+    display:block !important;
+    margin-top:18px !important;
+  }
+
+  #whatsincluded .panel,
+  #pricing .panel{
+    padding:20px 16px 108px !important;
+    border-radius:26px !important;
+    box-shadow:none !important;
+  }
+
+  #whatsincluded .amount-row,
+  #pricing .amount-row{
+    display:block !important;
+    margin-bottom:18px !important;
+  }
+
+  #whatsincluded input[type=number],
+  #pricing input[type=number]{
+    margin-top:8px !important;
+    padding:15px 16px !important;
+    font-size:28px !important;
+    border-radius:16px !important;
+  }
+
+  #whatsincluded .help,
+  #pricing .help{
+    margin-top:12px !important;
+    font-size:14px !important;
+    line-height:1.45 !important;
+  }
+
+  #whatsincluded .services,
+  #pricing .services{
+    grid-template-columns:1fr 1fr !important;
+    gap:9px !important;
+    margin-top:12px !important;
+  }
+
+  #whatsincluded .service,
+  #pricing .service{
+    min-height:48px !important;
+    padding:10px 11px !important;
+    gap:8px !important;
+    border-radius:16px !important;
+    font-size:13px !important;
+    line-height:1.15 !important;
+  }
+
+  #whatsincluded .service input,
+  #pricing .service input{
+    width:19px !important;
+    height:19px !important;
+    flex:0 0 auto !important;
+  }
+
+  #whatsincluded .panel > div:has(button:not(.mobile-receipt-button)),
+  #pricing .panel > div:has(button:not(.mobile-receipt-button)){
+    display:flex !important;
+    flex-wrap:wrap !important;
+    gap:8px !important;
+    margin-top:8px !important;
+  }
+
+  #whatsincluded .panel > div:has(button:not(.mobile-receipt-button)) button,
+  #pricing .panel > div:has(button:not(.mobile-receipt-button)) button{
+    margin:0 !important;
+    padding:10px 12px !important;
+    font-size:12px !important;
+  }
+
+  #whatsincluded .note,
+  #pricing .note{
+    margin-top:16px !important;
+    font-size:14px !important;
+    line-height:1.45 !important;
+  }
+
+  .mobile-receipt-button{
+    display:block;
+    position:sticky;
+    bottom:14px;
+    z-index:20;
+    width:100%;
+    min-height:56px;
+    margin:20px 0 0 !important;
+    border:0;
+    border-radius:18px;
+    background:#fff;
+    color:#05060d;
+    font-size:17px;
+    font-weight:900;
+    box-shadow:0 18px 45px rgba(0,0,0,.35);
+  }
+
+  #whatsincluded .receipt,
+  #pricing .receipt{
+    position:fixed !important;
+    left:12px !important;
+    right:12px !important;
+    bottom:12px !important;
+    top:auto !important;
+    z-index:1002 !important;
+    max-height:78svh !important;
+    overflow:auto !important;
+    margin:0 !important;
+    padding:20px 18px 24px !important;
+    border-radius:28px !important;
+    transform:translateY(calc(100% + 40px));
+    transition:transform .35s cubic-bezier(.2,.8,.2,1);
+    background:linear-gradient(180deg,rgba(20,22,30,.98),rgba(8,9,14,.99)) !important;
+    box-shadow:0 -24px 80px rgba(0,0,0,.55) !important;
+  }
+
+  #whatsincluded .receipt.open,
+  #pricing .receipt.open{
+    transform:translateY(0);
+  }
+
+  .receipt-sheet-close{
+    display:block;
+    margin:0 0 12px auto !important;
+    padding:8px 12px !important;
+    border-radius:999px !important;
+    font-size:13px !important;
+    background:rgba(255,255,255,.1) !important;
+  }
+
+  .receipt-sheet-overlay{
+    display:block;
+    position:fixed;
+    inset:0;
+    z-index:1001;
+    background:rgba(0,0,0,.58);
+    backdrop-filter:blur(8px);
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .25s ease;
+  }
+
+  .receipt-sheet-overlay.open{
+    opacity:1;
+    pointer-events:auto;
+  }
+
+  #whatsincluded .receipt h2,
+  #pricing .receipt h2{
+    font-size:30px !important;
+  }
+
+  #whatsincluded .lines,
+  #pricing .lines{
+    min-height:150px !important;
+    margin:16px 0 !important;
+  }
+}
+</style><style id="pricing-section-placement-fix">
+#pricing{
+  display:block !important;
+  min-height:100vh;
+}
+#pricing > .inner{
+  max-width:1160px;
+  margin:auto;
+}
+#pricing .wrap{
+  width:100%;
+}
+@media(max-width:850px){
+  #pricing{
+    padding-top:118px !important;
+  }
+  #pricing .grid{
+    display:block !important;
+  }
+  #pricing .panel{
+    display:block !important;
+  }
+}
+</style><style id="iphone-css-only-receipt-fix">
+.receipt-sheet-toggle{
+  position:absolute;
+  opacity:0;
+  pointer-events:none;
+}
+
+@media(max-width:850px){
+  #pricing{
+    padding:106px 14px 70px !important;
+  }
+
+  #pricing .wrap{
+    max-width:100% !important;
+  }
+
+  #pricing h1{
+    font-size:clamp(44px,12.5vw,58px) !important;
+    line-height:.88 !important;
+    margin:6px 0 14px !important;
+  }
+
+  #pricing .lead{
+    font-size:15px !important;
+    line-height:1.4 !important;
+    margin:0 0 16px !important;
+  }
+
+  #pricing .panel{
+    padding:16px 14px 82px !important;
+    border-radius:22px !important;
+  }
+
+  #pricing .amount-row{
+    margin-bottom:14px !important;
+  }
+
+  #pricing label.title{
+    font-size:10px !important;
+    margin-bottom:6px !important;
+  }
+
+  #pricing input[type=number]{
+    font-size:24px !important;
+    padding:13px 14px !important;
+    border-radius:14px !important;
+  }
+
+  #pricing .help{
+    font-size:12.5px !important;
+    line-height:1.35 !important;
+    margin-top:10px !important;
+  }
+
+  #pricing .services{
+    grid-template-columns:1fr 1fr !important;
+    gap:7px !important;
+    margin-top:10px !important;
+  }
+
+  #pricing .service{
+    min-height:42px !important;
+    padding:8px 9px !important;
+    border-radius:14px !important;
+    font-size:11.5px !important;
+  }
+
+  #pricing .service input{
+    width:17px !important;
+    height:17px !important;
+  }
+
+  #pricing .panel > div:has(button){
+    gap:6px !important;
+    margin-top:10px !important;
+  }
+
+  #pricing .panel > div:has(button) button{
+    padding:9px 10px !important;
+    font-size:11px !important;
+  }
+
+  #pricing .note{
+    margin-top:12px !important;
+    padding:12px !important;
+    font-size:12.5px !important;
+  }
+
+  .mobile-receipt-button{
+    display:flex !important;
+    align-items:center;
+    justify-content:center;
+    position:sticky;
+    bottom:10px;
+    z-index:30;
+    width:100%;
+    min-height:52px;
+    margin-top:14px;
+    border-radius:16px;
+    background:#fff;
+    color:#05060d;
+    font-size:16px;
+    font-weight:900;
+    cursor:pointer;
+    box-shadow:0 16px 40px rgba(0,0,0,.38);
+  }
+
+  #pricing .receipt{
+    position:fixed !important;
+    left:10px !important;
+    right:10px !important;
+    bottom:10px !important;
+    top:auto !important;
+    z-index:1002 !important;
+    width:auto !important;
+    max-height:82svh !important;
+    overflow:auto !important;
+    -webkit-overflow-scrolling:touch;
+    margin:0 !important;
+    padding:18px 16px 22px !important;
+    border-radius:26px !important;
+    transform:translateY(calc(100% + 30px));
+    transition:transform .32s cubic-bezier(.2,.8,.2,1);
+    background:linear-gradient(180deg,rgba(20,22,30,.99),rgba(7,8,12,.995)) !important;
+    box-shadow:0 -20px 70px rgba(0,0,0,.6) !important;
+  }
+
+  #receiptSheetToggle:checked ~ .receipt{
+    transform:translateY(0) !important;
+  }
+
+  .receipt-sheet-overlay{
+    display:block !important;
+    position:fixed;
+    inset:0;
+    z-index:1001;
+    background:rgba(0,0,0,.62);
+    backdrop-filter:blur(7px);
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .2s ease;
+  }
+
+  #receiptSheetToggle:checked ~ .receipt-sheet-overlay{
+    opacity:1;
+    pointer-events:auto;
+  }
+
+  .receipt-sheet-close{
+    display:block !important;
+    width:max-content;
+    margin:0 0 10px auto !important;
+    padding:8px 12px !important;
+    border-radius:999px !important;
+    background:rgba(255,255,255,.1) !important;
+    color:#fff !important;
+    font-size:12px !important;
+    font-weight:900 !important;
+    cursor:pointer;
+  }
+
+  #pricing .receipt h2{
+    font-size:26px !important;
+    margin-bottom:6px !important;
+  }
+
+  #pricing .receipt p{
+    font-size:13px !important;
+    line-height:1.35 !important;
+  }
+
+  #pricing .lines{
+    min-height:120px !important;
+    margin:12px 0 !important;
+    gap:8px !important;
+  }
+
+  #pricing .line{
+    padding-bottom:8px !important;
+    font-size:13px !important;
+  }
+
+  #pricing .total{
+    font-size:20px !important;
+    padding-top:12px !important;
+  }
+}
+</style><style id="iphone-preview-fallback-fix">
+/* CSS-only fallback for iPhone file preview, where inline JavaScript may not run */
+.css-receipt-lines{
+  display:grid;
+  gap:8px;
+  margin:14px 0;
+}
+.css-receipt-line{
+  display:none;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:10px 0;
+  border-bottom:1px dashed rgba(255,255,255,.18);
+}
+.css-receipt-line strong{
+  color:#fff;
+  font-size:14px;
+}
+.css-receipt-line span{
+  color:var(--cyan);
+  font-size:12px;
+  font-weight:900;
+}
+.css-receipt-empty{
+  min-height:90px;
+  display:grid;
+  place-items:center;
+  padding:16px;
+  border:1px dashed rgba(255,255,255,.18);
+  border-radius:16px;
+  color:rgba(255,255,255,.52);
+  text-align:center;
+  font-size:13px;
+}
+#pricing:has(#receipt-service-consultation:checked) .css-line-consultation{display:flex!important;}
+#pricing:has(#receipt-service-shampoo:checked) .css-line-shampoo{display:flex!important;}
+#pricing:has(#receipt-service-blow-dry:checked) .css-line-blow-dry{display:flex!important;}
+#pricing:has(#receipt-service-detangling:checked) .css-line-detangling{display:flex!important;}
+#pricing:has(#receipt-service-treatment:checked) .css-line-treatment{display:flex!important;}
+#pricing:has(#receipt-service-trim:checked) .css-line-trim{display:flex!important;}
+#pricing:has(#receipt-service-install:checked) .css-line-install{display:flex!important;}
+#pricing:has(#receipt-service-style:checked) .css-line-style{display:flex!important;}
+#pricing:has(#receipt-service-take-down:checked) .css-line-take-down{display:flex!important;}
+#pricing:has(#receipt-service-maintenance:checked) .css-line-maintenance{display:flex!important;}
+#pricing:has(#receipt-service-hair-included:checked) .css-line-hair-included{display:flex!important;}
+#pricing:has(#receipt-service-products-included:checked) .css-line-products-included{display:flex!important;}
+#pricing:has(#receipt-service-consultation:checked) .css-receipt-empty,
+#pricing:has(#receipt-service-shampoo:checked) .css-receipt-empty,
+#pricing:has(#receipt-service-blow-dry:checked) .css-receipt-empty,
+#pricing:has(#receipt-service-detangling:checked) .css-receipt-empty,
+#pricing:has(#receipt-service-treatment:checked) .css-receipt-empty,
+#pricing:has(#receipt-service-trim:checked) .css-receipt-empty,
+#pricing:has(#receipt-service-install:checked) .css-receipt-empty,
+#pricing:has(#receipt-service-style:checked) .css-receipt-empty,
+#pricing:has(#receipt-service-take-down:checked) .css-receipt-empty,
+#pricing:has(#receipt-service-maintenance:checked) .css-receipt-empty,
+#pricing:has(#receipt-service-hair-included:checked) .css-receipt-empty,
+#pricing:has(#receipt-service-products-included:checked) .css-receipt-empty{
+  display:none!important;
+}
+
+@media(max-width:850px){
+  #pricing .receipt{
+    max-height:72svh !important;
+    min-height:0 !important;
+  }
+
+  #pricing .lines{
+    display:none !important;
+    min-height:0 !important;
+    margin:0 !important;
+  }
+
+  .css-receipt-lines{
+    margin:12px 0 6px !important;
+  }
+
+  .css-receipt-empty{
+    min-height:76px !important;
+  }
+
+  .receipt-total-row{
+    margin-top:8px !important;
+  }
+
+  #pricing .receipt .small{
+    margin-top:10px !important;
+    font-size:12px !important;
+  }
+}
+</style><style id="iphone-live-receipt-redesign">
+/* iPhone redesign: live receipt stays visible and updates as selections change */
+@media(max-width:850px){
+  #pricing{
+    padding:108px 14px 72px !important;
+    overflow:visible !important;
+  }
+
+  #pricing .wrap{
+    width:100% !important;
+    max-width:100% !important;
+  }
+
+  #pricing h1{
+    font-size:clamp(43px,12.2vw,58px) !important;
+    line-height:.88 !important;
+    margin:6px 0 14px !important;
+  }
+
+  #pricing .lead{
+    font-size:15px !important;
+    line-height:1.42 !important;
+    margin:0 0 18px !important;
+  }
+
+  #pricing .grid{
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:16px !important;
+    margin-top:16px !important;
+  }
+
+  #pricing .panel,
+  #pricing .receipt{
+    position:relative !important;
+    left:auto !important;
+    right:auto !important;
+    top:auto !important;
+    bottom:auto !important;
+    width:100% !important;
+    max-height:none !important;
+    min-height:0 !important;
+    overflow:visible !important;
+    transform:none !important;
+    margin:0 !important;
+    border-radius:22px !important;
+    box-shadow:none !important;
+  }
+
+  #pricing .panel{
+    padding:16px 14px !important;
+  }
+
+  #pricing .receipt{
+    display:block !important;
+    padding:18px 16px 20px !important;
+    background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.035)) !important;
+  }
+
+  #pricing .amount-row{
+    display:block !important;
+    margin-bottom:14px !important;
+  }
+
+  #pricing label.title{
+    font-size:10px !important;
+    margin-bottom:6px !important;
+  }
+
+  #pricing input[type=number]{
+    margin-top:6px !important;
+    padding:13px 14px !important;
+    font-size:24px !important;
+    border-radius:14px !important;
+  }
+
+  #pricing .help{
+    margin-top:10px !important;
+    font-size:12.5px !important;
+    line-height:1.35 !important;
+  }
+
+  #pricing .services{
+    display:grid !important;
+    grid-template-columns:1fr 1fr !important;
+    gap:7px !important;
+    margin-top:10px !important;
+  }
+
+  #pricing .service{
+    min-height:42px !important;
+    padding:8px 9px !important;
+    gap:7px !important;
+    border-radius:14px !important;
+    font-size:11.5px !important;
+    line-height:1.15 !important;
+  }
+
+  #pricing .service input{
+    width:17px !important;
+    height:17px !important;
+    flex:0 0 auto !important;
+  }
+
+  #pricing .panel > div:has(button){
+    display:grid !important;
+    grid-template-columns:1fr 1fr !important;
+    gap:7px !important;
+    margin-top:12px !important;
+    position:relative !important;
+    z-index:5 !important;
+  }
+
+  #pricing .panel > div:has(button) button{
+    width:100% !important;
+    margin:0 !important;
+    padding:10px 8px !important;
+    font-size:10.5px !important;
+    line-height:1.2 !important;
+    position:relative !important;
+    z-index:6 !important;
+    pointer-events:auto !important;
+  }
+
+  #pricing .panel > div:has(button) #clear{
+    grid-column:1 / -1 !important;
+  }
+
+  #pricing .note{
+    margin-top:13px !important;
+    padding:12px !important;
+    font-size:12.5px !important;
+    line-height:1.4 !important;
+  }
+
+  #pricing .receipt h2{
+    font-size:27px !important;
+    margin:0 0 6px !important;
+  }
+
+  #pricing .receipt > p{
+    font-size:13px !important;
+    line-height:1.35 !important;
+    margin:0 !important;
+  }
+
+  #pricing .lines{
+    display:grid !important;
+    min-height:92px !important;
+    margin:14px 0 !important;
+    gap:7px !important;
+  }
+
+  #pricing .line{
+    display:flex !important;
+    justify-content:space-between !important;
+    gap:10px !important;
+    padding:8px 0 !important;
+    font-size:13px !important;
+  }
+
+  #pricing .empty{
+    min-height:92px !important;
+    border-radius:14px !important;
+    font-size:12px !important;
+  }
+
+  #pricing .total{
+    padding-top:12px !important;
+    font-size:20px !important;
+  }
+
+  #pricing .small{
+    margin-top:10px !important;
+    font-size:11.5px !important;
+    line-height:1.35 !important;
+  }
+}
+</style><style id="github-live-receipt-final-css">
+#pricing .receipt-preview-fallback{
+  min-height:120px;
+  display:grid;
+  place-items:center;
+  padding:18px;
+  border:1px dashed rgba(255,255,255,.20);
+  border-radius:16px;
+  text-align:center;
+  color:rgba(255,255,255,.56);
+  font-size:13px;
+  line-height:1.45;
+}
+
+@media(max-width:850px){
+  #pricing{
+    padding:104px 14px 72px !important;
+    overflow:visible !important;
+  }
+
+  #pricing .grid{
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:14px !important;
+  }
+
+  #pricing .panel,
+  #pricing .receipt{
+    position:relative !important;
+    inset:auto !important;
+    width:100% !important;
+    max-height:none !important;
+    transform:none !important;
+    overflow:visible !important;
+    margin:0 !important;
+    border-radius:22px !important;
+  }
+
+  #pricing .panel{
+    padding:16px 14px !important;
+  }
+
+  #pricing .receipt{
+    padding:18px 16px 20px !important;
+    background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.035)) !important;
+  }
+
+  #pricing h1{
+    font-size:clamp(42px,12vw,56px) !important;
+    line-height:.9 !important;
+    margin-bottom:14px !important;
+  }
+
+  #pricing .lead{
+    font-size:15px !important;
+    line-height:1.42 !important;
+    margin-bottom:16px !important;
+  }
+
+  #pricing .services{
+    grid-template-columns:1fr 1fr !important;
+    gap:7px !important;
+  }
+
+  #pricing .service{
+    min-height:42px !important;
+    padding:8px 9px !important;
+    border-radius:14px !important;
+    font-size:11.5px !important;
+  }
+
+  #pricing .panel > div:has(button){
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:7px !important;
+  }
+
+  #pricing .panel > div:has(button) button{
+    width:100% !important;
+    margin:0 !important;
+    min-height:46px !important;
+  }
+
+  #pricing .receipt h2{
+    font-size:27px !important;
+  }
+
+  #pricing .lines{
+    min-height:120px !important;
+    margin:14px 0 !important;
+  }
+
+  #pricing .line{
+    display:flex !important;
+    justify-content:space-between !important;
+    gap:10px !important;
+    padding:9px 0 !important;
+    font-size:13px !important;
+  }
+}
+</style></head>
 <body>
-<div class="topbar">
-<div class="brand">Hairdemic<span>™</span> Playbook</div>
-<div class="nav">
-<a href="#cover">Cover</a><a href="#contents">Contents</a><a href="#hairdemic">Hairdemic</a><a href="#dictionary">Dictionary</a><a href="#decision">Decision</a><a href="#traction">Traction</a><a href="#mirror">Mirror Audit</a><a href="#budget">Budget</a><a href="#casefiles">Cases</a><a href="#healthyhair">Healthy Hair</a><a href="#tools">Tools</a>
+<div class="topbar topbar-minimal">
+<a class="brand" href="#cover">Hairdemic<span>™</span> Institute</a>
+<div class="topbar-status">
+<span>Playbook</span>
+<span class="topbar-progress-number" id="progressNumber">00%</span>
 </div>
 </div>
 <div class="progress-wrap"><div class="progress-fill" id="progressFill"></div></div>
@@ -2404,14 +4870,10 @@ button.primary{border:none;color:#05060d;background:linear-gradient(90deg,var(--
 <span class="cover-edition-divider"></span>
 <span>Institute Edition 01</span>
 </div>
-
 <h1>The Hairdemic<br/>Playbook</h1>
-
 <p class="cover-subtitle">Learn how to navigate today's hair industry without losing your <span class="hero-word hero-hair">hair</span>, your <span class="hero-word hero-money">money</span> or your <span class="hero-word hero-mind">mind</span>.</p>
-
 <p class="cover-manifesto">Built on Hairdemic Theory, this playbook helps you understand today's hair industry before you book, spend or trust.</p>
-
-<div class="cover-preview" aria-label="Inside the playbook">
+<div aria-label="Inside the playbook" class="cover-preview">
 <div class="cover-preview-item">
 <span>01</span>
 <strong>See the system</strong>
@@ -2428,33 +4890,98 @@ button.primary{border:none;color:#05060d;background:linear-gradient(90deg,var(--
 <p>Make decisions that support your hair beyond one finished style.</p>
 </div>
 </div>
-
 <div class="cover-author">Based on Hairdemic Theory <span>•</span> By Roynesha Mix</div>
-
 <div class="btns cover-actions">
 <a class="btn primary" href="#hairdemic">Enter the Playbook</a>
 <a class="cover-text-link" href="#tools">View the action plan <span>→</span></a>
 </div>
 </div>
 </section>
-<section id="contents">
+<section class="investigation-index" id="contents">
 <div class="inner">
-<div class="kicker">Start Here</div>
-<h2>Contents</h2>
-<p>This is an interactive handbook you can use before booking, during appointments, after a bad experience and when you need clarity.</p>
-<div class="contents">
-<a class="content-row" href="#hairdemic"><div class="num">01</div><strong>Understanding Hairdemic</strong></a>
-<a class="content-row" href="#how"><div class="num">02</div><strong>How We Got Here</strong></a>
-<a class="content-row" href="#dictionary"><div class="num">03</div><strong>Hairdemic Dictionary</strong></a>
-<a class="content-row" href="#landscape"><div class="num">04</div><strong>The Stylist Landscape</strong></a>
-<a class="content-row" href="#decision"><div class="num">05</div><strong>Before You Book</strong></a>
-<a class="content-row" href="#pricing"><div class="num">06</div><strong>Understanding Pricing</strong></a>
-<a class="content-row" href="#traction"><div class="num">07</div><strong>Traction Warning Guide</strong></a>
-<a class="content-row" href="#mirror"><div class="num">08</div><strong>Mirror Audit System</strong></a>
-<a class="content-row" href="#money"><div class="num">09</div><strong>Vetting Matrix</strong></a>
-<a class="content-row" href="#budget"><div class="num">10</div><strong>Hair Budget Calculator</strong></a>
-<a class="content-row" href="#casefiles"><div class="num">11</div><strong>Hairdemic Case Files</strong></a>
-<a class="content-row" href="#scripts"><div class="num">12</div><strong>Script Library</strong></a>
+<div class="investigation-eyebrow">
+<span>Hairdemic Institute</span>
+<span>Field Guide 01</span>
+</div>
+<div class="investigation-intro">
+<div>
+<div class="kicker">Your Investigation Begins Here</div>
+<h2>Inside the<br/><span>Investigation</span></h2>
+</div>
+<p>This is not a list of chapters. It is a guided investigation into how today’s hair industry works, why familiar problems keep repeating and how to make clearer decisions inside the system.</p>
+</div>
+<a class="investigation-feature" href="#hairdemic">
+<div class="investigation-feature-number">01</div>
+<div class="investigation-feature-copy">
+<span class="investigation-label">Begin here</span>
+<h3>Understanding Hairdemic</h3>
+<p>Discover the pattern connecting appointment anxiety, inconsistent standards, pricing confusion and hair outcomes.</p>
+<div class="investigation-enter">Enter the first exhibit <span>→</span></div>
+</div>
+<div aria-hidden="true" class="investigation-orbit">
+<div class="investigation-core">HD</div>
+</div>
+</a>
+<div class="investigation-list">
+<a class="investigation-row" href="#how">
+<div class="investigation-number">02</div>
+<div><strong>How We Got Here</strong><p>Follow the structural shifts that separated styling from care.</p></div>
+<span>↗</span>
+</a>
+<a class="investigation-row" href="#dictionary">
+<div class="investigation-number">03</div>
+<div><strong>The Language of Hairdemic</strong><p>Name the patterns consumers experience but rarely have words for.</p></div>
+<span>↗</span>
+</a>
+<a class="investigation-row" href="#landscape">
+<div class="investigation-number">04</div>
+<div><strong>The Stylist Landscape</strong><p>Understand how different business models shape responsibility and service.</p></div>
+<span>↗</span>
+</a>
+<a class="investigation-row" href="#decision">
+<div class="investigation-number">05</div>
+<div><strong>Before You Book</strong><p>Evaluate the service, setting and expectations before committing.</p></div>
+<span>↗</span>
+</a>
+<a class="investigation-row" href="#pricing">
+<div class="investigation-number">06</div>
+<div><strong>What Are You Paying For?</strong><p>Compare included services instead of relying on the listed price alone.</p></div>
+<span>↗</span>
+</a>
+<a class="investigation-row" href="#traction">
+<div class="investigation-number">07</div>
+<div><strong>Traction Warning Guide</strong><p>Recognize discomfort and tension before they become visible damage.</p></div>
+<span>↗</span>
+</a>
+<a class="investigation-row" href="#mirror">
+<div class="investigation-number">08</div>
+<div><strong>Mirror Audit System</strong><p>Document what your hair is showing you between appointments.</p></div>
+<span>↗</span>
+</a>
+<a class="investigation-row" href="#money">
+<div class="investigation-number">09</div>
+<div><strong>Vetting Matrix</strong><p>Turn vague impressions into a clearer booking decision.</p></div>
+<span>↗</span>
+</a>
+<a class="investigation-row" href="#budget">
+<div class="investigation-number">10</div>
+<div><strong>Hair Investment</strong><p>See the full financial pattern behind routine hair maintenance.</p></div>
+<span>↗</span>
+</a>
+<a class="investigation-row" href="#casefiles">
+<div class="investigation-number">11</div>
+<div><strong>Hairdemic Case Files</strong><p>Examine familiar experiences through an Institute lens.</p></div>
+<span>↗</span>
+</a>
+<a class="investigation-row" href="#scripts">
+<div class="investigation-number">12</div>
+<div><strong>Communication Scripts</strong><p>Ask clearer questions and set expectations without confrontation.</p></div>
+<span>↗</span>
+</a>
+</div>
+<div class="investigation-note">
+<span>Field note</span>
+<p>You do not have to complete every exhibit in order. Return to the tool that matches the decision in front of you.</p>
 </div>
 </div>
 </section>
@@ -2512,49 +5039,289 @@ button.primary{border:none;color:#05060d;background:linear-gradient(90deg,var(--
 <div class="btns"><a class="btn primary" href="#how">Next Section</a></div>
 </div>
 </section>
-<section class="hwg-clean" id="how">
+<section class="hwg-experience" id="how">
 <div class="inner">
-<div class="kicker">Research Exhibit</div>
-<h2>How We Got Here</h2>
-<div class="hwg-theory-panel">
-<div class="hwg-theory-label">Hairdemic Theory</div>
-<div class="hwg-theory-statement">
-        Hairdemic Theory argues that the modern hair industry became <span>disconnected from hair care as its foundation</span>, contributing to the decline of shared standards and the widespread patterns consumers experience today.
-      </div>
+<div class="hwg-opening">
+<div class="kicker">Hairdemic Theory</div>
+<h2>Hairdemic Theory argues that the modern hair industry became disconnected from hair care as its foundation.</h2>
+<p class="hwg-evidence-line">Everything below is evidence of what changed after that connection weakened.</p>
 </div>
-<div class="hwg-divider"></div>
-<div class="hwg-section-title">
-<h3>How the Industry Changed</h3>
-<p>The shifts below did not happen in one straight line. Together, they helped create an industry where hair care is no longer consistently treated as the foundation of the service experience.</p>
+<div aria-label="Hair care separating from hairstyling" class="hwg-break-visual">
+<div class="hwg-side hwg-care">
+<span>Foundation</span>
+<strong>Hair Care</strong>
 </div>
-<div class="hwg-shifts">
-<div class="hwg-shift">
-<div class="hwg-icon-wrap"><div class="hwg-shift-num">01</div><div class="hwg-icon">🏢</div></div>
-<div><h4>Business Model Shift</h4><p>The way hair services are offered changed. More professionals built independent brands, policies, pricing and specialties, creating more variation in the client experience.</p></div>
+<div aria-hidden="true" class="hwg-connection">
+<div class="hwg-line-left"></div>
+<div class="hwg-break-mark">×</div>
+<div class="hwg-line-right"></div>
 </div>
-<div class="hwg-shift">
-<div class="hwg-icon-wrap"><div class="hwg-shift-num">02</div><div class="hwg-icon">📱</div></div>
-<div><h4>Social Media Influence</h4><p>Social media reshaped how the industry markets itself, how consumers discover services and how trends spread. Visibility became powerful, but visibility does not always show the full care system behind the style.</p></div>
-</div>
-<div class="hwg-shift">
-<div class="hwg-icon-wrap"><div class="hwg-shift-num">03</div><div class="hwg-icon">✨</div></div>
-<div><h4>Style-First Culture</h4><p>The finished look became easier to prioritize than the long-term condition of the hair. In many spaces, the style became the product while care became optional, separate or unclear.</p></div>
-</div>
-<div class="hwg-shift">
-<div class="hwg-icon-wrap"><div class="hwg-shift-num">04</div><div class="hwg-icon">⚕️</div></div>
-<div><h4>Broken Care System</h4><p>While many professionals prioritize healthy hair, there is no longer a consistent expectation that one provider will guide a client's hair journey from beginning to end.</p></div>
+<div class="hwg-side hwg-style">
+<span>Service</span>
+<strong>Hairstyling</strong>
 </div>
 </div>
-<div class="hwg-insight">
-<div class="hwg-insight-text">The biggest mistake consumers make is assuming <span>everyone is playing by the same rules.</span></div>
+<div class="hwg-break-caption">
+<span class="hwg-caption-before">Once connected</span>
+<span class="hwg-caption-after">Now often treated as separate responsibilities</span>
 </div>
-<div class="btns"><a class="btn" href="#hairdemic">Previous</a><a class="btn primary" href="#dictionary">Next Section</a></div>
+<div class="hwg-chain-intro">
+<div class="kicker">The Chain Reaction</div>
+<h3>One shift made the next one easier.</h3>
+<p>Tap each stage to reveal the Hairdemic finding.</p>
+</div>
+<div class="hwg-chain">
+<details class="hwg-stage" open="">
+<summary>
+<span class="hwg-stage-number">01</span>
+<span class="hwg-stage-icon">🏢</span>
+<span class="hwg-stage-copy">
+<small>First shift</small>
+<strong>Business Model Shift</strong>
+</span>
+<span class="hwg-stage-toggle">+</span>
+</summary>
+<div class="hwg-stage-detail">
+<span class="hwg-finding-label">Hairdemic Finding</span>
+<h4>One industry became many independent service systems.</h4>
+<p>More professionals built their own pricing, policies, specialties and expectations. Choice expanded but shared expectations became less consistent.</p>
+</div>
+</details>
+<div class="hwg-chain-arrow">↓</div>
+<details class="hwg-stage">
+<summary>
+<span class="hwg-stage-number">02</span>
+<span class="hwg-stage-icon">📱</span>
+<span class="hwg-stage-copy">
+<small>Visibility shift</small>
+<strong>Social Media</strong>
+</span>
+<span class="hwg-stage-toggle">+</span>
+</summary>
+<div class="hwg-stage-detail">
+<span class="hwg-finding-label">Hairdemic Finding</span>
+<h4>Visibility became easier than verification.</h4>
+<p>Finished styles became highly visible while the care system behind them remained difficult to evaluate.</p>
+</div>
+</details>
+<div class="hwg-chain-arrow">↓</div>
+<details class="hwg-stage">
+<summary>
+<span class="hwg-stage-number">03</span>
+<span class="hwg-stage-icon">✨</span>
+<span class="hwg-stage-copy">
+<small>Priority shift</small>
+<strong>Style-First Culture</strong>
+</span>
+<span class="hwg-stage-toggle">+</span>
+</summary>
+<div class="hwg-stage-detail">
+<span class="hwg-finding-label">Hairdemic Finding</span>
+<h4>The style became the destination. Hair care became optional.</h4>
+<p>The finished look became the most visible product while long-term care became less expected and easier to separate from the appointment.</p>
+</div>
+</details>
+<div class="hwg-chain-arrow">↓</div>
+<details class="hwg-stage">
+<summary>
+<span class="hwg-stage-number">04</span>
+<span class="hwg-stage-icon">✂️</span>
+<span class="hwg-stage-copy">
+<small>Responsibility shift</small>
+<strong>Fragmented Care</strong>
+</span>
+<span class="hwg-stage-toggle">+</span>
+</summary>
+<div class="hwg-stage-detail">
+<span class="hwg-finding-label">Hairdemic Finding</span>
+<h4>One hair journey became many disconnected services.</h4>
+<p>Clients increasingly navigate multiple providers with different roles, standards and expectations instead of one clearly connected care system.</p>
+</div>
+</details>
+</div>
+<div class="hwg-final-finding">
+<span>Hairdemic Finding</span>
+<h3>When hair care stopped serving as the foundation, shared standards became harder to maintain.</h3>
+</div>
+<div class="btns">
+<a class="btn" href="#hairdemic">Previous</a>
+<a class="btn primary" href="#dictionary">Next Section</a>
+</div>
 </div>
 </section>
-<section class="quote-page" id="quote1">
-<div class="inner center">
-<div class="quote-box">The biggest mistake consumers make is assuming everyone is playing by the same rules.</div>
-<div class="btns"><a class="btn" href="#how">Previous</a><a class="btn primary" href="#dictionary">Next Section</a></div>
+<section class="quote-page stylist-landscape-quote" id="quote1">
+<div class="inner">
+<div class="kicker">The Modern Stylist Landscape</div>
+<div class="quote-box">
+      The biggest mistake consumers make is assuming everyone is playing by the same rules.
+    </div>
+<div class="quote-transition-line">
+<span>One title</span>
+<span></span>
+<span>Different service models</span>
+</div>
+<div class="btns">
+<a class="btn" href="#how">Previous</a>
+<a class="btn primary" href="#landscape">Explore the Stylist Landscape</a>
+</div>
+</div>
+</section>
+<section class="stylist-model-section" id="landscape">
+<div class="inner">
+<div class="stylist-model-opening compact">
+<div class="kicker">The Modern Stylist Landscape</div>
+<h2>Four service models.<br/><span>Four different appointment experiences.</span></h2>
+<p>The same title does not always describe the same service structure.</p>
+</div>
+<div aria-label="Service model navigation" class="stylist-model-tabs">
+<a class="model-tab active" href="#model-full">Full-Service</a>
+<a class="model-tab" href="#model-care">Care-Focused</a>
+<a class="model-tab" href="#model-style">Style-Focused</a>
+<a class="model-tab" href="#model-specialist">Specialist</a>
+</div>
+<div class="stylist-model-track" id="stylistModelTrack">
+<article class="stylist-model-card model-full" id="model-full">
+<div class="model-card-glow"></div>
+<div class="model-card-topline">
+<span>Hairdemic Institute</span>
+<span>Service Model 01</span>
+</div>
+<div class="model-card-hero">
+<div class="model-card-icon">🏛️</div>
+<div>
+<h3>Full-Service</h3>
+<p>Built around a more complete appointment experience.</p>
+</div>
+</div>
+<div class="model-card-details">
+<div class="model-detail">
+<span>Primary Goal</span>
+<strong>Provide hair care and styling within one appointment experience.</strong>
+</div>
+<div class="model-detail">
+<span>Best For</span>
+<strong>Someone looking for ongoing maintenance, hair care and styling from the same provider.</strong>
+</div>
+<div class="model-detail">
+<span>What to Expect</span>
+<strong>More appointment steps, more communication and a broader range of included services.</strong>
+</div>
+<div class="model-detail">
+<span>Keep in Mind</span>
+<strong>Full-service describes a model, not a guarantee. Included services still vary.</strong>
+</div>
+</div>
+</article>
+<article class="stylist-model-card model-care" id="model-care">
+<div class="model-card-glow"></div>
+<div class="model-card-topline">
+<span>Hairdemic Institute</span>
+<span>Service Model 02</span>
+</div>
+<div class="model-card-hero">
+<div class="model-card-icon">🌿</div>
+<div>
+<h3>Care-Focused</h3>
+<p>Built around long-term hair health, maintenance and consistency.</p>
+</div>
+</div>
+<div class="model-card-details">
+<div class="model-detail">
+<span>Primary Goal</span>
+<strong>Support the health and condition of the hair over time.</strong>
+</div>
+<div class="model-detail">
+<span>Best For</span>
+<strong>Someone seeking maintenance, consistency and a care-centered relationship.</strong>
+</div>
+<div class="model-detail">
+<span>What to Expect</span>
+<strong>More attention to condition, routine, maintenance and long-term outcomes.</strong>
+</div>
+<div class="model-detail">
+<span>Keep in Mind</span>
+<strong>Care-focused does not mean every style or service is offered.</strong>
+</div>
+</div>
+</article>
+<article class="stylist-model-card model-style" id="model-style">
+<div class="model-card-glow"></div>
+<div class="model-card-topline">
+<span>Hairdemic Institute</span>
+<span>Service Model 03</span>
+</div>
+<div class="model-card-hero">
+<div class="model-card-icon">✨</div>
+<div>
+<h3>Style-Focused</h3>
+<p>Built around achieving a specific finished look.</p>
+</div>
+</div>
+<div class="model-card-details">
+<div class="model-detail">
+<span>Primary Goal</span>
+<strong>Deliver the finished hairstyle the client is booking for.</strong>
+</div>
+<div class="model-detail">
+<span>Best For</span>
+<strong>Someone who already understands their care needs and is primarily booking for the final look.</strong>
+</div>
+<div class="model-detail">
+<span>What to Expect</span>
+<strong>Preparation requirements, narrower service inclusion and a strong focus on execution.</strong>
+</div>
+<div class="model-detail">
+<span>Keep in Mind</span>
+<strong>The title alone does not tell you which preparation or care services are included.</strong>
+</div>
+</div>
+</article>
+<article class="stylist-model-card model-specialist" id="model-specialist">
+<div class="model-card-glow"></div>
+<div class="model-card-topline">
+<span>Hairdemic Institute</span>
+<span>Service Model 04</span>
+</div>
+<div class="model-card-hero">
+<div class="model-card-icon">🎯</div>
+<div>
+<h3>Specialist</h3>
+<p>Built around one service, technique or area of expertise.</p>
+</div>
+</div>
+<div class="model-card-details">
+<div class="model-detail">
+<span>Primary Goal</span>
+<strong>Deliver strong results within a defined specialty.</strong>
+</div>
+<div class="model-detail">
+<span>Best For</span>
+<strong>Someone booking a focused service such as braids, color, locs, cuts, installs or treatments.</strong>
+</div>
+<div class="model-detail">
+<span>What to Expect</span>
+<strong>A narrower menu, deeper specialization and clearer boundaries around what is provided.</strong>
+</div>
+<div class="model-detail">
+<span>Keep in Mind</span>
+<strong>A specialist may only manage one part of a larger hair journey.</strong>
+</div>
+</div>
+</article>
+</div>
+<div class="stylist-swipe-cue">
+<span>Swipe to explore</span>
+<div class="swipe-line"></div>
+<span>01—04</span>
+</div>
+<div class="stylist-model-finding">
+<span>Hairdemic Finding</span>
+<h3>Different service models are not the problem. Assuming they all operate the same way is.</h3>
+</div>
+<div class="btns">
+<a class="btn" href="#dictionary">Previous</a>
+<a class="btn primary" href="#decision">Next Section</a>
+</div>
 </div>
 </section>
 <section id="dictionary">
@@ -2576,236 +5343,176 @@ button.primary{border:none;color:#05060d;background:linear-gradient(90deg,var(--
 <div class="btns"><a class="btn" href="#quote1">Previous</a><a class="btn primary" href="#landscape">Next Section</a></div>
 </div>
 </section>
-<section class="stylist-browser-section" id="landscape">
-<div class="inner stylist-browser-inner">
-<div class="stylist-question">
-<div class="kicker">Navigation Exhibit</div>
-<h2>How do I choose the right stylist?</h2>
-<p class="lead">Not every stylist offers the same experience. The first step is not finding the “best” stylist — it is understanding what kind of relationship you are looking for.</p>
+<section class="before-book-section appointment-inspection" id="decision">
+<div class="inner">
+<div class="inspection-opening">
+<div class="kicker">Before You Book</div>
+<h2>Booking<br/><span>Assessment</span></h2>
+<p>Before paying a deposit, review these five areas.</p>
 </div>
-<div class="stylist-browser">
-<button aria-label="Previous stylist profile" class="stylist-nav-btn" id="stylistPrev">‹</button>
-<div class="stylist-profile">
-<div class="stylist-profile-content" id="stylistProfileContent">
-<div class="stylist-profile-icon" id="stylistIcon">🌿</div>
-<div class="stylist-profile-label" id="stylistLabel">Profile 01</div>
-<div class="stylist-profile-title" id="stylistTitle">Care-Focused</div>
-<p class="stylist-profile-summary" id="stylistSummary">Built around long-term hair health, maintenance and consistency.</p>
-<div class="stylist-profile-details">
-<div class="stylist-detail"><strong>Primary Goal</strong><span id="stylistGoal">Healthy hair over time.</span></div>
-<div class="stylist-detail"><strong>Best For</strong><span id="stylistBest">Someone looking for a long-term relationship and a care plan.</span></div>
-<div class="stylist-detail"><strong>What To Expect</strong><span id="stylistExpect">Maintenance, planning, honest feedback and consistency.</span></div>
-<div class="stylist-detail"><strong>Keep In Mind</strong><span id="stylistMind">Not every appointment is built around a dramatic transformation.</span></div>
+<div class="inspection-list">
+<details class="inspection-item" open="">
+<summary>
+<span class="inspection-number">01</span>
+<span class="inspection-icon">💵</span>
+<span class="inspection-summary-copy">
+<small>Checkpoint</small>
+<strong>Pricing</strong>
+<em>Know the full financial commitment.</em>
+</span>
+</summary>
+<div class="inspection-panel">
+<p class="inspection-prompt">Review:</p>
+<div class="inspection-chips"><div class="static-chip">Total price</div><div class="static-chip">Deposit</div><div class="static-chip">Add-ons</div><div class="static-chip">Late fees</div><div class="static-chip">Travel fees</div><div class="static-chip">Product fees</div></div>
+<div class="inspection-finding">
+<span>Hairdemic Finding</span>
+<p>The listed price is not always the final appointment cost.</p>
 </div>
-<div class="stylist-dots" id="stylistDots"></div>
+</div>
+</details>
+<details class="inspection-item">
+<summary>
+<span class="inspection-number">02</span>
+<span class="inspection-icon">📦</span>
+<span class="inspection-summary-copy">
+<small>Checkpoint</small>
+<strong>Included Services</strong>
+<em>Know exactly what you're paying for.</em>
+</span>
+</summary>
+<div class="inspection-panel">
+<p class="inspection-prompt">Review:</p>
+<div class="inspection-chips"><div class="static-chip">Shampoo</div><div class="static-chip">Blow-dry</div><div class="static-chip">Detangling</div><div class="static-chip">Treatment</div><div class="static-chip">Trim</div><div class="static-chip">Takedown</div><div class="static-chip">Styling</div></div>
+<div class="inspection-finding">
+<span>Hairdemic Finding</span>
+<p>The same service can describe two very different appointments.</p>
 </div>
 </div>
-<button aria-label="Next stylist profile" class="stylist-nav-btn" id="stylistNext">›</button>
+</details>
+<details class="inspection-item">
+<summary>
+<span class="inspection-number">03</span>
+<span class="inspection-icon">📋</span>
+<span class="inspection-summary-copy">
+<small>Checkpoint</small>
+<strong>Policies &amp; Professionalism</strong>
+<em>Know the rules and how they're communicated.</em>
+</span>
+</summary>
+<div class="inspection-panel">
+<p class="inspection-prompt">Review:</p>
+<div class="inspection-chips"><div class="static-chip">Late policy</div><div class="static-chip">Cancellation</div><div class="static-chip">Refunds</div><div class="static-chip">Reschedule</div><div class="static-chip">Guest policy</div><div class="static-chip">Age policy</div><div class="static-chip">Tone</div><div class="static-chip">Respectfulness</div><div class="static-chip">Clarity</div><div class="static-chip">Professionalism</div></div>
+<div class="inspection-finding">
+<span>Hairdemic Finding</span>
+<p>Policies explain the rules. The way they're communicated may offer insight into the overall client experience.</p>
 </div>
-<div class="btns"><a class="btn" href="#dictionary">Previous</a><a class="btn primary" href="#decision">Next Section</a></div>
+</div>
+</details>
+<details class="inspection-item">
+<summary>
+<span class="inspection-number">04</span>
+<span class="inspection-icon">🧭</span>
+<span class="inspection-summary-copy">
+<small>Checkpoint</small>
+<strong>Service Model</strong>
+<em>Know what type of appointment you're booking.</em>
+</span>
+</summary>
+<div class="inspection-panel">
+<p class="inspection-prompt">Review:</p>
+<div class="inspection-chips">
+<div class="static-chip">Full-Service</div>
+<div class="static-chip">Care-Focused</div>
+<div class="static-chip">Style-Focused</div>
+<div class="static-chip">Specialist</div>
+</div>
+<div class="inspection-finding">
+<span>Hairdemic Finding</span>
+<p>The title "hairstylist" doesn't always tell you what kind of appointment you're booking.</p>
+</div>
+</div>
+</details>
+<details class="inspection-item">
+<summary>
+<span class="inspection-number">05</span>
+<span class="inspection-icon">📅</span>
+<span class="inspection-summary-copy">
+<small>Checkpoint</small>
+<strong>Appointment Requirements</strong>
+<em>Know what's expected before you arrive.</em>
+</span>
+</summary>
+<div class="inspection-panel">
+<p class="inspection-prompt">Review:</p>
+<div class="inspection-chips">
+<div class="static-chip">Hair preparation</div>
+<div class="static-chip">Hair to bring</div>
+<div class="static-chip">Approved brands</div>
+<div class="static-chip">Appointment length</div>
+<div class="static-chip">Additional requirements</div>
+</div>
+<div class="inspection-finding">
+<span>Hairdemic Finding</span>
+<p>Many appointment surprises begin with requirements that weren't fully understood beforehand.</p>
+</div>
+</div>
+</details>
+</div>
+<div class="inspection-complete">
+<span>Hairdemic Finding</span>
+<h3>If anything important is still unclear, pause before paying.</h3>
+<p>The goal isn't to eliminate every surprise. It's to eliminate the avoidable ones.</p>
+</div>
+<div class="btns">
+<a class="btn" href="#landscape">Previous</a>
+<a class="btn primary" href="#pricing">Continue to What Am I Paying For?</a>
+</div>
 </div>
 </section>
-<section class="before-book-section" id="decision">
-<div class="inner">
-<div class="booking-hero">
-<div class="kicker">Navigation Protocol</div>
-<h2>Before You Book</h2>
-<p class="lead">A quick navigation guide before paying a deposit.</p>
-</div>
-<div class="booking-confidence-sticky">
-<div class="booking-confidence-top">
-<div class="booking-confidence-title">Booking Confidence</div>
-<div class="booking-confidence-status" id="bookingConfidenceStatus">Building Clarity • 0%</div>
-</div>
-<div class="booking-confidence-track">
-<div class="booking-confidence-fill" id="bookingConfidenceFill"></div>
-</div>
-</div>
-<div class="booking-opening">
-<h3>You found a hairstylist.</h3>
-<p>Before you send a deposit, make sure you have the clarity you need to book with confidence.</p>
-</div>
-<div class="booking-checklist" id="bookingChecklist">
-<div class="booking-item">
-<button class="booking-question" type="button">
-<div class="booking-node">💵</div>
-<div class="booking-question-text">
-<strong>I understand the total price.</strong>
-<span>Make sure the price is clear before booking.</span>
-</div>
-<div class="booking-chevron">›</div>
-</button>
-<div class="booking-details">
-<div class="booking-details-inner">
-<p>Check whether they clearly explain:</p>
-<div class="booking-detail-grid">
-<div class="booking-chip">Total price</div>
-<div class="booking-chip">Add-ons</div>
-<div class="booking-chip">Extra fees</div>
-<div class="booking-chip">Late fees</div>
-<div class="booking-chip">Travel fees</div>
-<div class="booking-chip">Product fees</div>
-</div>
-<div class="booking-tip"><strong>Hairdemic Tip</strong><p>Hidden costs are easier to avoid than unexpected surprises.</p></div>
-<button class="booking-complete-btn" type="button">Mark Complete</button>
-</div>
-</div>
-</div>
-<div class="booking-item">
-<button class="booking-question" type="button">
-<div class="booking-node">📦</div>
-<div class="booking-question-text">
-<strong>I know exactly what's included.</strong>
-<span>Never assume two stylists include the same steps.</span>
-</div>
-<div class="booking-chevron">›</div>
-</button>
-<div class="booking-details">
-<div class="booking-details-inner">
-<p>Clarify what your appointment includes:</p>
-<div class="booking-detail-grid">
-<div class="booking-chip">Shampoo</div>
-<div class="booking-chip">Blow dry</div>
-<div class="booking-chip">Detangling</div>
-<div class="booking-chip">Treatment</div>
-<div class="booking-chip">Trim</div>
-<div class="booking-chip">Maintenance</div>
-</div>
-<div class="booking-tip"><strong>Hairdemic Tip</strong><p>Clarity before booking creates confidence in the chair.</p></div>
-<button class="booking-complete-btn" type="button">Mark Complete</button>
-</div>
-</div>
-</div>
-<div class="booking-item">
-<button class="booking-question" type="button">
-<div class="booking-node">💳</div>
-<div class="booking-question-text">
-<strong>I understand the deposit policy.</strong>
-<span>Know what happens before you send money.</span>
-</div>
-<div class="booking-chevron">›</div>
-</button>
-<div class="booking-details">
-<div class="booking-details-inner">
-<p>Before paying, make sure you understand:</p>
-<div class="booking-detail-grid">
-<div class="booking-chip">Refundable or non-refundable?</div>
-<div class="booking-chip">Transferable?</div>
-<div class="booking-chip">Reschedule policy</div>
-<div class="booking-chip">Cancellation policy</div>
-<div class="booking-chip">What if the stylist cancels?</div>
-<div class="booking-chip">What if you are late?</div>
-</div>
-<div class="booking-tip"><strong>Hairdemic Tip</strong><p>Deposits can protect both the stylist and the client, but only when the terms are clear.</p></div>
-<button class="booking-complete-btn" type="button">Mark Complete</button>
-</div>
-</div>
-</div>
-<div class="booking-item">
-<button class="booking-question" type="button">
-<div class="booking-node">🏠</div>
-<div class="booking-question-text">
-<strong>I understand the business setup.</strong>
-<span>Different setups create different experiences.</span>
-</div>
-<div class="booking-chevron">›</div>
-</button>
-<div class="booking-details">
-<div class="booking-details-inner">
-<p>Make sure you understand where and how the service is offered:</p>
-<div class="booking-detail-grid">
-<div class="booking-chip">Home studio</div>
-<div class="booking-chip">Salon suite</div>
-<div class="booking-chip">Traditional salon</div>
-<div class="booking-chip">Mobile stylist</div>
-<div class="booking-chip">Full-service setting</div>
-<div class="booking-chip">Private studio</div>
-</div>
-<div class="booking-tip"><strong>Hairdemic Tip</strong><p>Different business setups are not automatically better or worse. They simply shape the experience.</p></div>
-<button class="booking-complete-btn" type="button">Mark Complete</button>
-</div>
-</div>
-</div>
-<div class="booking-item">
-<button class="booking-question" type="button">
-<div class="booking-node">🌿</div>
-<div class="booking-question-text">
-<strong>This stylist offers the experience I'm looking for.</strong>
-<span>Match the service to your actual hair goal.</span>
-</div>
-<div class="booking-chevron">›</div>
-</button>
-<div class="booking-details">
-<div class="booking-details-inner">
-<p>Think about whether you are looking for:</p>
-<div class="booking-detail-grid">
-<div class="booking-chip">Care-focused</div>
-<div class="booking-chip">Style-focused</div>
-<div class="booking-chip">Specialist</div>
-<div class="booking-chip">Full-service</div>
-<div class="booking-chip">Quick style</div>
-<div class="booking-chip">Long-term hair care</div>
-</div>
-<div class="booking-tip"><strong>Hairdemic Tip</strong><p>Choosing the right stylist starts with choosing the right type of relationship.</p></div>
-<button class="booking-complete-btn" type="button">Mark Complete</button>
-</div>
-</div>
-</div>
-<div class="booking-item">
-<button class="booking-question" type="button">
-<div class="booking-node">📋</div>
-<div class="booking-question-text">
-<strong>The booking experience feels professional.</strong>
-<span>Professional communication builds confidence before the appointment begins.</span>
-</div>
-<div class="booking-chevron">›</div>
-</button>
-<div class="booking-details">
-<div class="booking-details-inner">
-<p>Ask yourself:</p>
-<div class="booking-detail-grid">
-<div class="booking-chip">Are expectations clear?</div>
-<div class="booking-chip">Is the tone respectful?</div>
-<div class="booking-chip">Are policies organized?</div>
-<div class="booking-chip">Do instructions feel easy to follow?</div>
-<div class="booking-chip">Would I feel comfortable asking a reasonable question?</div>
-<div class="booking-chip">Do I understand what to expect?</div>
-</div>
-<div class="booking-tip"><strong>Hairdemic Principle</strong><p>The appointment starts long before you sit in the chair.</p></div>
-<button class="booking-complete-btn" type="button">Mark Complete</button>
-</div>
-</div>
-</div>
-</div>
-<div class="booking-final" id="bookingFinal">
-<h3><span>Proceed with confidence.</span></h3>
-<p>If every checkpoint is clear, you are not guessing anymore. You are booking with information.</p>
-</div>
-<div class="btns"><a class="btn" href="#landscape">Previous</a><a class="btn primary" href="#pricing">Next Section</a></div>
-</div>
-</section>
-<section id="pricing">
-<div class="inner">
-<div class="kicker">Chapter 6</div>
-<h2>Understanding Pricing</h2>
-<div class="exhibit-visual"><div class="exhibit-title">The listed price is not always the <span>final cost.</span></div></div>
-<p>Pricing confusion is one of the biggest causes of appointment regret. Understand the pricing model before the service begins.</p>
-<div class="illustration">
-<div class="diagram-row">
-<div class="diagram-pill">Listed Price</div><div class="arrow">+</div>
-<div class="diagram-pill">Add-Ons</div><div class="arrow">+</div>
-<div class="diagram-pill">Policy Fees</div><div class="arrow">=</div>
-<div class="diagram-pill">Final Cost</div>
-</div>
-</div>
+<section id="pricing"><div class="inner"><div class="wrap">
+<div class="kicker">Prototype Exhibit</div>
+<h1>What Am I <span class="grad">Paying For?</span></h1>
+<p class="lead">Two appointments can cost the same and include completely different services. This receipt breaks down what an appointment may include so you're comparing services—not just prices.</p>
 <div class="grid">
-<div class="mini"><div class="icon">🏷️</div><strong>Flat Pricing</strong><p>One listed price. Clarify if add-ons can change it.</p></div>
-<div class="mini"><div class="icon">📈</div><strong>Starting At</strong><p>Ask for the highest possible range.</p></div>
-<div class="mini"><div class="icon">⏱️</div><strong>Hourly</strong><p>Can be transparent when estimated honestly.</p></div>
+<div class="panel">
+<div class="amount-row">
+<div>
+<label class="title" for="total">Appointment Total</label>
+<input id="total" min="0" type="number" value="250"/>
 </div>
-<div class="btns"><a class="btn" href="#decision">Previous</a><a class="btn primary" href="#traction">Next Section</a></div>
+<div class="help">This tool visualizes included services. It does not determine what an appointment should cost.</div>
 </div>
-</section>
+<label class="title">Included Services</label>
+<div class="services" id="services">
+<label class="service"><input id="receipt-service-consultation" type="checkbox" value="Consultation"/> Consultation</label>
+<label class="service"><input id="receipt-service-shampoo" type="checkbox" value="Shampoo"/> Shampoo</label>
+<label class="service"><input id="receipt-service-blow-dry" type="checkbox" value="Blow Dry"/> Blow Dry</label>
+<label class="service"><input id="receipt-service-detangling" type="checkbox" value="Detangling"/> Detangling</label>
+<label class="service"><input id="receipt-service-treatment" type="checkbox" value="Treatment"/> Treatment</label>
+<label class="service"><input id="receipt-service-trim" type="checkbox" value="Trim"/> Trim</label>
+<label class="service"><input id="receipt-service-install" type="checkbox" value="Install"/> Install</label>
+<label class="service"><input id="receipt-service-style" type="checkbox" value="Style"/> Style</label>
+<label class="service"><input id="receipt-service-take-down" type="checkbox" value="Take Down"/> Take Down</label>
+<label class="service"><input id="receipt-service-maintenance" type="checkbox" value="Maintenance"/> Maintenance</label>
+<label class="service"><input id="receipt-service-hair-included" type="checkbox" value="Hair Included"/> Hair Included</label>
+<label class="service"><input id="receipt-service-products-included" type="checkbox" value="Products Included"/> Products Included</label>
+</div>
+<div>
+<button class="primary" id="full" type="button">Full-Service Example</button>
+<button id="simple" type="button">Install + Style Example</button>
+<button id="clear" type="button">Clear</button>
+</div>
+<div class="note"><b>Hairdemic Principle</b><br/>Different stylists structure services differently. Always ask what's included before comparing prices.</div>
+</div>
+<aside class="receipt">
+<h2>Appointment Breakdown</h2>
+<p>A visual breakdown of your total based on selected services.</p>
+<div class="lines" id="lines"><div class="receipt-preview-fallback">Your live breakdown will appear here as services are selected. Open the published GitHub Pages version in Safari to use the calculator.</div></div>
+<div class="total receipt-total-row"><span>Total</span><span id="totalOut">$250</span></div>
+<p class="small">Amounts are evenly distributed for visualization only.</p>
+</aside>
+</div>
+</div></div></section>
 <section id="traction">
 <div class="inner">
 <div class="kicker">Hair Health Guide</div>
@@ -3129,44 +5836,16 @@ const fill=document.getElementById("progressFill");
 window.addEventListener("scroll",()=>{
   const top=window.scrollY;
   const height=document.body.scrollHeight-window.innerHeight;
-  fill.style.width=(height>0?(top/height)*100:0)+"%";
+  const percent=height>0?(top/height)*100:0;
+  fill.style.width=percent+"%";
+  const number=document.getElementById("progressNumber");
+  if(number) number.textContent=String(Math.round(percent)).padStart(2,"0")+"%";
 });
 function calcBudget(){
   const cost=Number(document.getElementById("cost").value||0);
   const times=Number(document.getElementById("times").value||0);
   document.getElementById("budgetResult").textContent="$"+(cost*times).toLocaleString();
 }
-</script>
-<script>
-(function(){
-  const profiles = [
-    ["🌿","Profile 01","Care-Focused","Built around long-term hair health, maintenance and consistency.","Healthy hair over time.","Someone looking for a long-term relationship and a care plan.","Maintenance, planning, honest feedback and consistency.","Not every appointment is built around a dramatic transformation."],
-    ["🎨","Profile 02","Style-Focused","Built around achieving a specific look or finished style.","A polished final result.","Someone who knows the style they want and understands the care they may need outside the appointment.","Strong styling skill, visual results and style-specific execution.","A beautiful style does not always mean the full hair journey is being managed."],
-    ["🎯","Profile 03","Specialist","Built around one service, technique or area of expertise.","Excellent results in a specific category.","Someone booking a focused service like braids, installs, silk press, color, cuts or treatments.","Clear strengths and a defined specialty.","A specialist may not be responsible for every part of your hair journey."],
-    ["💎","Profile 04","Luxury","Built around premium experience, presentation and service environment.","Comfort, atmosphere and elevated service.","Someone who values experience, convenience and presentation.","Higher pricing, stronger branding and a polished client experience.","Luxury pricing does not automatically mean full-service hair care."],
-    ["⚡","Profile 05","Express","Built around speed, convenience and focused service.","Get in, get serviced and keep moving.","Someone who values efficiency and already understands their hair needs.","Fast service, clear boundaries and limited extras.","Express services work best when expectations are clear before booking."],
-    ["🏛️","Profile 06","Full-Service","Built around a more complete appointment experience.","A fuller service process from start to finish.","Someone who wants more support across the appointment, not just the final style.","More steps, more time and potentially more communication.","Full-service still needs to be vetted. Do not assume every full-service setup follows the same standard."]
-  ];
-  const ids = ["Icon","Label","Title","Summary","Goal","Best","Expect","Mind"];
-  const el = {};
-  ids.forEach(id => el[id.toLowerCase()] = document.getElementById("stylist"+id));
-  const content = document.getElementById("stylistProfileContent");
-  const dots = document.getElementById("stylistDots");
-  const prev = document.getElementById("stylistPrev");
-  const next = document.getElementById("stylistNext");
-  if(!content || !dots || !prev || !next) return;
-  let index = 0;
-  function render(){
-    const p = profiles[index];
-    content.style.animation = "none"; void content.offsetWidth; content.style.animation = "profileFade .35s ease";
-    el.icon.textContent = p[0]; el.label.textContent = p[1]; el.title.textContent = p[2]; el.summary.textContent = p[3];
-    el.goal.textContent = p[4]; el.best.textContent = p[5]; el.expect.textContent = p[6]; el.mind.textContent = p[7];
-    dots.innerHTML = profiles.map((_,i)=>'<span class="stylist-dot '+(i===index?'active':'')+'"></span>').join("");
-  }
-  prev.addEventListener("click", () => { index = (index - 1 + profiles.length) % profiles.length; render(); });
-  next.addEventListener("click", () => { index = (index + 1) % profiles.length; render(); });
-  render();
-})();
 </script>
 <script>
 document.addEventListener('DOMContentLoaded',function(){
@@ -3227,95 +5906,6 @@ c.forEach(x=>x.addEventListener('change',u));u();
   update();
 })();
 </script>
-<section id="whatsincluded"><div class="inner"><div class="wrap">
-<div class="kicker">Prototype Exhibit</div>
-<h1>What's <span class="grad">included?</span></h1>
-<p class="lead">Enter the appointment total, then check the services included. The receipt builds a visual breakdown so you can see what the total represents.</p>
-<div class="grid">
-<div class="panel">
-<div class="amount-row">
-<div>
-<label class="title" for="total">Appointment Total</label>
-<input id="total" min="0" type="number" value="250"/>
-</div>
-<div class="help">This is not a pricing guide. It does not decide what a style should cost.</div>
-</div>
-<label class="title">Service Library</label>
-<div class="services" id="services">
-<label class="service"><input type="checkbox" value="Consultation"/> Consultation</label>
-<label class="service"><input type="checkbox" value="Shampoo"/> Shampoo</label>
-<label class="service"><input type="checkbox" value="Blow Dry"/> Blow Dry</label>
-<label class="service"><input type="checkbox" value="Detangling"/> Detangling</label>
-<label class="service"><input type="checkbox" value="Treatment"/> Treatment</label>
-<label class="service"><input type="checkbox" value="Trim"/> Trim</label>
-<label class="service"><input type="checkbox" value="Install"/> Install</label>
-<label class="service"><input type="checkbox" value="Style"/> Style</label>
-<label class="service"><input type="checkbox" value="Take Down"/> Take Down</label>
-<label class="service"><input type="checkbox" value="Maintenance"/> Maintenance</label>
-<label class="service"><input type="checkbox" value="Hair Included"/> Hair Included</label>
-<label class="service"><input type="checkbox" value="Products Included"/> Products Included</label>
-</div>
-<div>
-<button class="primary" id="full">Full-Service Example</button>
-<button id="simple">Install + Style Example</button>
-<button id="clear">Clear</button>
-</div>
-<div class="note"><b>Hairdemic Principle</b><br/>Different stylists structure services differently. Always ask what's included before comparing prices.</div>
-</div>
-<aside class="receipt">
-<h2>Appointment Breakdown</h2>
-<p>A visual breakdown of your total based on selected services.</p>
-<div class="lines" id="lines"></div>
-<div class="total"><span>Total</span><span id="totalOut">$250</span></div>
-<p class="small">Amounts are evenly distributed for visualization only.</p>
-</aside>
-</div>
-</div><script>
-function $(id){return document.getElementById(id)}
-const total = $("total");
-const boxes = Array.from(document.querySelectorAll(".service input"));
-const lines = $("lines");
-const totalOut = $("totalOut");
-
-function money(v){ return "$" + Math.round(Number(v || 0)).toLocaleString(); }
-
-function render(){
-  const amount = Number(total.value || 0);
-  const chosen = boxes.filter(b => b.checked).map(b => b.value);
-  totalOut.textContent = money(amount);
-
-  if(chosen.length === 0){
-    lines.innerHTML = '<div class="empty">Check services to build your appointment breakdown.</div>';
-    return;
-  }
-
-  const base = Math.floor(amount / chosen.length);
-  let remainder = amount - base * chosen.length;
-  lines.innerHTML = chosen.map(name => {
-    const each = base + (remainder > 0 ? 1 : 0);
-    if(remainder > 0) remainder -= 1;
-    return '<div class="line"><strong>'+name+'</strong><span class="price">'+money(each)+'</span></div>';
-  }).join("");
-}
-
-boxes.forEach(b => b.addEventListener("change", render));
-total.addEventListener("input", render);
-
-$("clear").addEventListener("click", () => { boxes.forEach(b => b.checked = false); render(); });
-$("full").addEventListener("click", () => {
-  const set = ["Consultation","Shampoo","Blow Dry","Treatment","Trim","Install","Style"];
-  boxes.forEach(b => b.checked = set.includes(b.value));
-  render();
-});
-$("simple").addEventListener("click", () => {
-  const set = ["Install","Style"];
-  boxes.forEach(b => b.checked = set.includes(b.value));
-  render();
-});
-
-render();
-</script></div></section>
-
 <script id="production-scroll-reveal-script">
 (function(){
   function initReveal(){
@@ -3393,6 +5983,214 @@ render();
   }
 })();
 </script>
+<script id="active-model-highlight-sync">
+(function(){
+  function initModelHighlight(){
+    var track = document.getElementById('stylistModelTrack');
+    var tabs = Array.prototype.slice.call(document.querySelectorAll('.stylist-model-tabs .model-tab'));
+    var cards = track ? Array.prototype.slice.call(track.querySelectorAll('.stylist-model-card')) : [];
 
-</body>
+    if(!track || !tabs.length || !cards.length) return;
+
+    var currentIndex = -1;
+    var rafId = null;
+    var lastLeft = -1;
+
+    function setActive(index){
+      index = Math.max(0, Math.min(index, tabs.length - 1));
+      if(index === currentIndex) return;
+
+      currentIndex = index;
+
+      tabs.forEach(function(tab, i){
+        var active = i === index;
+        tab.classList.toggle('active', active);
+        tab.setAttribute('aria-selected', active ? 'true' : 'false');
+      });
+
+      var activeTab = tabs[index];
+      var bar = activeTab.parentElement;
+      if(activeTab && bar){
+        var desired =
+          activeTab.offsetLeft -
+          ((bar.clientWidth - activeTab.offsetWidth) / 2);
+
+        bar.scrollTo({
+          left: Math.max(0, desired),
+          behavior: 'smooth'
+        });
+      }
+    }
+
+    function calculateIndex(){
+      rafId = null;
+
+      var viewportCenter = track.scrollLeft + (track.clientWidth / 2);
+      var closestIndex = 0;
+      var closestDistance = Infinity;
+
+      cards.forEach(function(card, index){
+        var cardCenter = card.offsetLeft + (card.offsetWidth / 2);
+        var distance = Math.abs(cardCenter - viewportCenter);
+
+        if(distance < closestDistance){
+          closestDistance = distance;
+          closestIndex = index;
+        }
+      });
+
+      setActive(closestIndex);
+    }
+
+    function requestCalculation(){
+      if(rafId === null){
+        rafId = window.requestAnimationFrame(calculateIndex);
+      }
+    }
+
+    tabs.forEach(function(tab, index){
+      tab.addEventListener('click', function(event){
+        event.preventDefault();
+
+        var card = cards[index];
+        var target =
+          card.offsetLeft -
+          ((track.clientWidth - card.offsetWidth) / 2);
+
+        track.scrollTo({
+          left: Math.max(0, target),
+          behavior: 'smooth'
+        });
+
+        setActive(index);
+      });
+    });
+
+    track.addEventListener('scroll', requestCalculation, {passive:true});
+    track.addEventListener('touchmove', requestCalculation, {passive:true});
+    track.addEventListener('touchend', calculateIndex, {passive:true});
+    track.addEventListener('pointerup', calculateIndex, {passive:true});
+    window.addEventListener('resize', calculateIndex);
+
+    /* Some mobile previews miss horizontal scroll events, so check scrollLeft too. */
+    window.setInterval(function(){
+      if(Math.abs(track.scrollLeft - lastLeft) > 1){
+        lastLeft = track.scrollLeft;
+        calculateIndex();
+      }
+    }, 120);
+
+    calculateIndex();
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', initModelHighlight);
+  }else{
+    initModelHighlight();
+  }
+})();
+</script>
+<script id="github-live-receipt-final-script">
+(function(){
+  function bootReceipt(){
+    const section = document.getElementById('pricing');
+    if(!section) return;
+
+    const totalInput = section.querySelector('#total');
+    const checkboxes = Array.from(
+      section.querySelectorAll('.service input[type="checkbox"]')
+    );
+    const lines = section.querySelector('#lines');
+    const totalOutput = section.querySelector('#totalOut');
+    const fullButton = section.querySelector('#full');
+    const simpleButton = section.querySelector('#simple');
+    const clearButton = section.querySelector('#clear');
+
+    if(!totalInput || !checkboxes.length || !lines || !totalOutput) return;
+
+    function money(value){
+      return '$' + Math.round(Number(value || 0)).toLocaleString();
+    }
+
+    function render(){
+      const amount = Math.max(0, Math.round(Number(totalInput.value || 0)));
+      const selected = checkboxes
+        .filter(function(box){ return box.checked; })
+        .map(function(box){ return box.value; });
+
+      totalOutput.textContent = money(amount);
+
+      if(selected.length === 0){
+        lines.innerHTML =
+          '<div class="receipt-preview-fallback">' +
+          'Select services to build your appointment breakdown.' +
+          '</div>';
+        return;
+      }
+
+      const base = Math.floor(amount / selected.length);
+      let remainder = amount - (base * selected.length);
+
+      lines.innerHTML = selected.map(function(name){
+        const share = base + (remainder > 0 ? 1 : 0);
+        if(remainder > 0) remainder -= 1;
+
+        return (
+          '<div class="line">' +
+            '<strong>' + name + '</strong>' +
+            '<span class="price">' + money(share) + '</span>' +
+          '</div>'
+        );
+      }).join('');
+    }
+
+    checkboxes.forEach(function(box){
+      box.addEventListener('change', render);
+    });
+
+    totalInput.addEventListener('input', render);
+    totalInput.addEventListener('change', render);
+
+    if(fullButton){
+      fullButton.addEventListener('click', function(){
+        const values = [
+          'Consultation','Shampoo','Blow Dry','Blow-Dry',
+          'Treatment','Trim','Install','Style'
+        ];
+        checkboxes.forEach(function(box){
+          box.checked = values.includes(box.value);
+        });
+        render();
+      });
+    }
+
+    if(simpleButton){
+      simpleButton.addEventListener('click', function(){
+        const values = ['Install','Style'];
+        checkboxes.forEach(function(box){
+          box.checked = values.includes(box.value);
+        });
+        render();
+      });
+    }
+
+    if(clearButton){
+      clearButton.addEventListener('click', function(){
+        checkboxes.forEach(function(box){
+          box.checked = false;
+        });
+        render();
+      });
+    }
+
+    render();
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', bootReceipt);
+  }else{
+    bootReceipt();
+  }
+})();
+</script></body>
 </html>
