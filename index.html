@@ -5032,6 +5032,62 @@ button.primary{border:none;color:#05060d;background:linear-gradient(90deg,var(--
     line-height:1.35 !important;
   }
 }
+</style><style id="expandable-mobile-receipt">
+.toggle-full-receipt{
+  display:none;
+}
+
+@media(max-width:850px){
+  #pricing .receipt{
+    max-height:none !important;
+    overflow:visible !important;
+  }
+
+  #pricing .lines{
+    min-height:62px !important;
+    max-height:132px !important;
+    overflow-y:auto !important;
+    overflow-x:hidden !important;
+    -webkit-overflow-scrolling:touch;
+    overscroll-behavior:contain;
+    padding-right:4px !important;
+    scrollbar-width:thin;
+  }
+
+  #pricing .receipt.receipt-expanded{
+    position:relative !important;
+    top:auto !important;
+  }
+
+  #pricing .receipt.receipt-expanded .lines{
+    max-height:none !important;
+    overflow:visible !important;
+  }
+
+  .toggle-full-receipt{
+    display:flex;
+    width:100%;
+    min-height:40px;
+    align-items:center;
+    justify-content:center;
+    margin:8px 0 10px !important;
+    padding:9px 12px !important;
+    border:1px solid rgba(53,232,255,.25) !important;
+    border-radius:13px !important;
+    background:rgba(53,232,255,.07) !important;
+    color:var(--cyan) !important;
+    font-size:11px !important;
+    font-weight:900 !important;
+    letter-spacing:.04em;
+    cursor:pointer;
+  }
+
+  #pricing .receipt.receipt-expanded .toggle-full-receipt{
+    background:rgba(255,255,255,.07) !important;
+    border-color:rgba(255,255,255,.14) !important;
+    color:#fff !important;
+  }
+}
 </style></head>
 <body>
 <div class="topbar topbar-minimal">
@@ -5688,7 +5744,7 @@ button.primary{border:none;color:#05060d;background:linear-gradient(90deg,var(--
 <h2>Appointment Breakdown</h2><div class="receipt-selection-summary" id="receiptSelectionSummary">0 services selected · $250 total</div>
 <p>A visual breakdown of your total based on selected services.</p>
 <div class="lines" id="lines"><div class="receipt-preview-fallback">Your live breakdown will appear here as services are selected. Open the published GitHub Pages version in Safari to use the calculator.</div></div>
-<div class="total receipt-total-row"><span>Total</span><span id="totalOut">$250</span></div>
+<button aria-expanded="false" class="toggle-full-receipt" id="toggleFullReceipt" type="button">View Full Receipt</button><div class="total receipt-total-row"><span>Total</span><span id="totalOut">$250</span></div>
 <p class="small">Amounts are evenly distributed for visualization only.</p>
 </aside>
 </div>
@@ -6392,6 +6448,46 @@ c.forEach(x=>x.addEventListener('change',u));u();
     document.addEventListener("DOMContentLoaded", startReceipt);
   }else{
     startReceipt();
+  }
+})();
+</script><script id="expandable-mobile-receipt-script">
+(function(){
+  function initExpandableReceipt(){
+    const section = document.getElementById("pricing");
+    if(!section) return;
+
+    const receipt = section.querySelector(".receipt");
+    const button = section.querySelector("#toggleFullReceipt");
+    if(!receipt || !button) return;
+
+    button.addEventListener("click", function(){
+      const expanded = receipt.classList.toggle("receipt-expanded");
+
+      button.textContent = expanded
+        ? "Collapse Receipt"
+        : "View Full Receipt";
+
+      button.setAttribute(
+        "aria-expanded",
+        expanded ? "true" : "false"
+      );
+
+      if(!expanded){
+        receipt.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }
+    });
+  }
+
+  if(document.readyState === "loading"){
+    document.addEventListener(
+      "DOMContentLoaded",
+      initExpandableReceipt
+    );
+  }else{
+    initExpandableReceipt();
   }
 })();
 </script></body>
