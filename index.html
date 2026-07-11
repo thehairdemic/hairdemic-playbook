@@ -4852,6 +4852,186 @@ button.primary{border:none;color:#05060d;background:linear-gradient(90deg,var(--
     font-size:13px !important;
   }
 }
+</style><style id="sticky-live-receipt-upgrade">
+/* Premium mobile live receipt */
+.receipt-selection-summary{
+  margin:6px 0 10px;
+  color:var(--cyan);
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+@media(max-width:850px){
+  #pricing{
+    padding:102px 14px 72px !important;
+    overflow:visible !important;
+  }
+
+  #pricing .wrap{
+    width:100% !important;
+    max-width:100% !important;
+  }
+
+  #pricing h1{
+    font-size:clamp(42px,11.8vw,56px) !important;
+    line-height:.9 !important;
+    margin:4px 0 12px !important;
+  }
+
+  #pricing .lead{
+    font-size:14.5px !important;
+    line-height:1.4 !important;
+    margin:0 0 16px !important;
+  }
+
+  #pricing .grid{
+    display:flex !important;
+    flex-direction:column !important;
+    gap:14px !important;
+    margin-top:14px !important;
+  }
+
+  #pricing .receipt{
+    order:-1;
+    position:sticky !important;
+    top:82px !important;
+    z-index:45 !important;
+    width:100% !important;
+    max-height:270px !important;
+    overflow:auto !important;
+    -webkit-overflow-scrolling:touch;
+    margin:0 !important;
+    padding:16px 15px 17px !important;
+    border-radius:22px !important;
+    background:
+      linear-gradient(180deg,rgba(20,22,30,.96),rgba(7,8,12,.97)) !important;
+    border:1px solid rgba(53,232,255,.28) !important;
+    box-shadow:
+      0 18px 55px rgba(0,0,0,.38),
+      0 0 0 1px rgba(255,255,255,.025) inset !important;
+    backdrop-filter:blur(18px);
+  }
+
+  #pricing .receipt h2{
+    font-size:24px !important;
+    line-height:1 !important;
+    margin:0 !important;
+  }
+
+  #pricing .receipt > p:not(.small){
+    display:none !important;
+  }
+
+  #pricing .receipt-selection-summary{
+    margin:7px 0 8px !important;
+    font-size:10px !important;
+  }
+
+  #pricing .lines{
+    min-height:62px !important;
+    max-height:125px !important;
+    overflow:auto !important;
+    margin:8px 0 !important;
+    gap:4px !important;
+  }
+
+  #pricing .receipt-preview-fallback,
+  #pricing .empty{
+    min-height:62px !important;
+    padding:10px !important;
+    border-radius:13px !important;
+    font-size:11px !important;
+  }
+
+  #pricing .line{
+    padding:6px 0 !important;
+    font-size:11.5px !important;
+  }
+
+  #pricing .total{
+    padding-top:9px !important;
+    font-size:17px !important;
+  }
+
+  #pricing .small{
+    margin-top:7px !important;
+    font-size:10px !important;
+    line-height:1.25 !important;
+  }
+
+  #pricing .panel{
+    width:100% !important;
+    margin:0 !important;
+    padding:16px 14px !important;
+    border-radius:22px !important;
+    box-shadow:none !important;
+  }
+
+  #pricing .amount-row{
+    display:block !important;
+    margin-bottom:13px !important;
+  }
+
+  #pricing label.title{
+    margin-bottom:5px !important;
+    font-size:10px !important;
+  }
+
+  #pricing input[type=number]{
+    margin-top:5px !important;
+    padding:12px 13px !important;
+    border-radius:14px !important;
+    font-size:23px !important;
+  }
+
+  #pricing .help{
+    margin-top:9px !important;
+    font-size:12px !important;
+    line-height:1.35 !important;
+  }
+
+  #pricing .services{
+    grid-template-columns:1fr 1fr !important;
+    gap:7px !important;
+    margin-top:9px !important;
+  }
+
+  #pricing .service{
+    min-height:42px !important;
+    padding:8px 9px !important;
+    border-radius:14px !important;
+    font-size:11.5px !important;
+  }
+
+  #pricing .service input{
+    width:17px !important;
+    height:17px !important;
+  }
+
+  #pricing .panel > div:has(button){
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:7px !important;
+    margin-top:11px !important;
+  }
+
+  #pricing .panel > div:has(button) button{
+    width:100% !important;
+    min-height:44px !important;
+    margin:0 !important;
+    padding:9px 10px !important;
+    font-size:11.5px !important;
+  }
+
+  #pricing .note{
+    margin-top:12px !important;
+    padding:11px 12px !important;
+    font-size:12px !important;
+    line-height:1.35 !important;
+  }
+}
 </style></head>
 <body>
 <div class="topbar topbar-minimal">
@@ -5505,7 +5685,7 @@ button.primary{border:none;color:#05060d;background:linear-gradient(90deg,var(--
 <div class="note"><b>Hairdemic Principle</b><br/>Different stylists structure services differently. Always ask what's included before comparing prices.</div>
 </div>
 <aside class="receipt">
-<h2>Appointment Breakdown</h2>
+<h2>Appointment Breakdown</h2><div class="receipt-selection-summary" id="receiptSelectionSummary">0 services selected · $250 total</div>
 <p>A visual breakdown of your total based on selected services.</p>
 <div class="lines" id="lines"><div class="receipt-preview-fallback">Your live breakdown will appear here as services are selected. Open the published GitHub Pages version in Safari to use the calculator.</div></div>
 <div class="total receipt-total-row"><span>Total</span><span id="totalOut">$250</span></div>
@@ -6090,106 +6270,128 @@ c.forEach(x=>x.addEventListener('change',u));u();
   }
 })();
 </script>
-<script id="github-live-receipt-final-script">
+<script id="sticky-live-receipt-script">
 (function(){
-  function bootReceipt(){
-    const section = document.getElementById('pricing');
+  function startReceipt(){
+    const section = document.getElementById("pricing");
     if(!section) return;
 
-    const totalInput = section.querySelector('#total');
+    const totalInput = section.querySelector("#total");
     const checkboxes = Array.from(
       section.querySelectorAll('.service input[type="checkbox"]')
     );
-    const lines = section.querySelector('#lines');
-    const totalOutput = section.querySelector('#totalOut');
-    const fullButton = section.querySelector('#full');
-    const simpleButton = section.querySelector('#simple');
-    const clearButton = section.querySelector('#clear');
+    const lines = section.querySelector("#lines");
+    const totalOutput = section.querySelector("#totalOut");
+    const summary = section.querySelector("#receiptSelectionSummary");
+    const fullButton = section.querySelector("#full");
+    const simpleButton = section.querySelector("#simple");
+    const clearButton = section.querySelector("#clear");
 
     if(!totalInput || !checkboxes.length || !lines || !totalOutput) return;
 
     function money(value){
-      return '$' + Math.round(Number(value || 0)).toLocaleString();
+      return "$" + Math.round(Number(value || 0)).toLocaleString();
     }
 
-    function render(){
+    function renderReceipt(){
       const amount = Math.max(0, Math.round(Number(totalInput.value || 0)));
+
       const selected = checkboxes
         .filter(function(box){ return box.checked; })
         .map(function(box){ return box.value; });
 
       totalOutput.textContent = money(amount);
 
+      if(summary){
+        summary.textContent =
+          selected.length +
+          (selected.length === 1 ? " service selected" : " services selected") +
+          " · " +
+          money(amount) +
+          " total";
+      }
+
       if(selected.length === 0){
         lines.innerHTML =
           '<div class="receipt-preview-fallback">' +
-          'Select services to build your appointment breakdown.' +
-          '</div>';
+          "Select services to build your appointment breakdown." +
+          "</div>";
         return;
       }
 
-      const base = Math.floor(amount / selected.length);
-      let remainder = amount - (base * selected.length);
+      const baseAmount = Math.floor(amount / selected.length);
+      let remaining = amount - (baseAmount * selected.length);
 
-      lines.innerHTML = selected.map(function(name){
-        const share = base + (remainder > 0 ? 1 : 0);
-        if(remainder > 0) remainder -= 1;
+      lines.innerHTML = selected.map(function(service){
+        const serviceAmount = baseAmount + (remaining > 0 ? 1 : 0);
+        if(remaining > 0) remaining -= 1;
 
         return (
           '<div class="line">' +
-            '<strong>' + name + '</strong>' +
-            '<span class="price">' + money(share) + '</span>' +
-          '</div>'
+            "<strong>" + service + "</strong>" +
+            '<span class="price">' + money(serviceAmount) + "</span>" +
+          "</div>"
         );
-      }).join('');
+      }).join("");
     }
 
     checkboxes.forEach(function(box){
-      box.addEventListener('change', render);
+      box.addEventListener("change", renderReceipt);
     });
 
-    totalInput.addEventListener('input', render);
-    totalInput.addEventListener('change', render);
+    totalInput.addEventListener("input", renderReceipt);
+    totalInput.addEventListener("change", renderReceipt);
 
     if(fullButton){
-      fullButton.addEventListener('click', function(){
-        const values = [
-          'Consultation','Shampoo','Blow Dry','Blow-Dry',
-          'Treatment','Trim','Install','Style'
+      fullButton.addEventListener("click", function(){
+        const fullServices = [
+          "Consultation",
+          "Shampoo",
+          "Blow Dry",
+          "Blow-Dry",
+          "Treatment",
+          "Trim",
+          "Install",
+          "Style"
         ];
+
         checkboxes.forEach(function(box){
-          box.checked = values.includes(box.value);
+          box.checked = fullServices.includes(box.value);
         });
-        render();
+
+        renderReceipt();
       });
     }
 
     if(simpleButton){
-      simpleButton.addEventListener('click', function(){
-        const values = ['Install','Style'];
+      simpleButton.addEventListener("click", function(){
+        const simpleServices = ["Install", "Style"];
+
         checkboxes.forEach(function(box){
-          box.checked = values.includes(box.value);
+          box.checked = simpleServices.includes(box.value);
         });
-        render();
+
+        renderReceipt();
       });
     }
 
     if(clearButton){
-      clearButton.addEventListener('click', function(){
+      clearButton.addEventListener("click", function(){
         checkboxes.forEach(function(box){
           box.checked = false;
         });
-        render();
+
+        renderReceipt();
       });
     }
 
-    render();
+    renderReceipt();
   }
 
-  if(document.readyState === 'loading'){
-    document.addEventListener('DOMContentLoaded', bootReceipt);
+  if(document.readyState === "loading"){
+    document.addEventListener("DOMContentLoaded", startReceipt);
   }else{
-    bootReceipt();
+    startReceipt();
   }
 })();
 </script></body>
